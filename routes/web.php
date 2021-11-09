@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Login
+Route::get('/login', function () {
+    return view('login');
+});
+
+// User
+Route::get('/profil', function () {
+    return view('user.uMain');
+});
+
+
 // Peminjaman
 
 Route::get('/peminjaman', function () {
@@ -50,4 +61,30 @@ Route::get('/buku/new/', function () {
 
 Route::get('/buku/edit/', function () {
     return view('buku.bEdit');
+});
+
+// Siswa
+
+Route::get('/siswa', function () {
+    return view('siswa.sMain');
+});
+
+Route::get('/siswa/detail/', function () {
+    return view('siswa.sDetail');
+});
+
+
+Route::get('/siswa/new/', function () {
+    return view('siswa.sNew');
+});
+
+Route::get('/siswa/edit/', function () {
+    return view('siswa.sEdit');
+});
+
+
+// Audit
+
+Route::get('/audit', function () {
+    return view('audit.aMain');
 });

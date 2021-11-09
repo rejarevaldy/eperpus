@@ -6,8 +6,8 @@
     <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/';">
         <ol class="breadcrumb">
             <li class="breadcrumb-item ">Home</li>
-            <li class="breadcrumb-item ">Buku</li>
-            <li class="breadcrumb-item active" aria-current="page">Edit Buku</li>
+            <li class="breadcrumb-item ">Siswa</li>
+            <li class="breadcrumb-item active" aria-current="page">Edit Siswa</li>
         </ol>
     </nav>
     <!-- Breadcrumb End -->
@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-lg-12 ">
                 <div class="p-4 mb-4 bg-light">
-                    <h2 class="mb-2">Edit Buku</h2>
+                    <h2 class="mb-2">Edit Siswa</h2>
                 </div>
                 <!-- Panel End -->
                 <!-- Form Start -->

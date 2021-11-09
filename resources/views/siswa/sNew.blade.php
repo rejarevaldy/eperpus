@@ -6,8 +6,8 @@
     <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/';">
         <ol class="breadcrumb">
             <li class="breadcrumb-item ">Home</li>
-            <li class="breadcrumb-item ">Buku</li>
-            <li class="breadcrumb-item active" aria-current="page">Edit Buku</li>
+            <li class="breadcrumb-item ">Siswa</li>
+            <li class="breadcrumb-item active" aria-current="page"> Tambahkan Siswa</li>
         </ol>
     </nav>
     <!-- Breadcrumb End -->
@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-lg-12 ">
                 <div class="p-4 mb-4 bg-light">
-                    <h2 class="mb-2">Edit Buku</h2>
+                    <h2 class="mb-2">Tambahkan Siswa</h2>
                 </div>
                 <!-- Panel End -->
                 <!-- Form Start -->
@@ -61,8 +61,8 @@
                                         </div>
                                     </div>
                                     <button type="button" class="px-4 py-2 mt-3 btn btn-primary fw-bold"><i
-                                            class="fas fa-save"></i>
-                                        <div class="d-none d-sm-inline"> Save</div>
+                                            class="fas fa-plus"></i>
+                                        <div class="d-none d-sm-inline"> Tambahkan</div>
                                     </button>
                                     <button type="reset" class="px-4 py-2 mt-3 btn btn-danger fw-bold" value="reset"><i
                                             class="fas fa-undo"></i>

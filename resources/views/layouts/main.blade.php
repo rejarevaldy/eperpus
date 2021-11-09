@@ -42,13 +42,13 @@
                     src="{{ asset('images/logosmk.png') }}" alt="" class="img img-responsive" width="30" height="30">
                 e-Perpus</div>
             <div class="list-group list-group-flush">
-                <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light " href="#!"><i
+                <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light " href="/audit/"><i
                         class='fa fa-history'></i> Log Audit</a>
-                <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light " href="#!"> <i
+                <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light " href="/buku/"> <i
                         class='fa fa-book '></i> Buku</a>
-                <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light " href="#!"><i
-                        class='fa fa-address-book'></i> Peminjaman</a>
-                <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light " href="#!"><i
+                <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light "
+                    href="/peminjaman/"><i class='fa fa-address-book'></i> Peminjaman</a>
+                <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light " href="/siswa/"><i
                         class='fa fa-user-graduate'></i> Siswa</a>
             </div>
         </div>
@@ -72,18 +72,11 @@
                                     alt="Username" width="30" height="30" class="border rounded-circle">
                             </a>
                             <ul class="mt-4 shadow dropdown-menu me-0" aria-labelledby="dropdownUser2">
-                                <li><a class="dropdown-item" href="edituser.php">
-                                        <i class="fas fa-user-cog"></i> Edit Profile</a></li>
+                                <li><a class="dropdown-item" href="/profil/"><i class="fas fa-user-cog"></i> Edit Profile</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-sign-out-alt"></i>
-                                        Sign out</a></li>
-                                <li>
-                                    <div class="custom-control custom-switch">
-                                        <input type="checkbox" class="custom-control-input" id="darkSwitch">
-                                        <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
-                                    </div>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-sign-out-alt"></i> Sign out</a>
                                 </li>
                             </ul>
                         </div>
