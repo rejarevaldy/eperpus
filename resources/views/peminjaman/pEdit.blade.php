@@ -2,18 +2,8 @@
 
 @section('content')
 
-    <!-- Breadcrum Start -->
-    <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/';">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item ">Home</li>
-            <li class="breadcrumb-item ">Peminjaman</li>
-            <li class="breadcrumb-item active" aria-current="page">Edit Peminjaman</li>
-        </ol>
-    </nav>
-    <!-- Breadcrumb End -->
-
     <!-- Panel Start -->
-    <div class="p-4 mb-4 bg-light border rounded">
+    <div class="p-4 mb-4 border rounded bg-light">
         <div class="row">
             <div class="col-lg-12 ">
                 <div class="p-4 mb-4 bg-light">
@@ -23,7 +13,7 @@
 
 
                 <!-- Form Start -->
-                <div class="p-4 bg-light border rounded">
+                <div class="p-4 border rounded bg-light">
                     <div class="row">
                         <form action="">
                             <div class="row">

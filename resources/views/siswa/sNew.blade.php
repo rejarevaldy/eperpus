@@ -2,15 +2,6 @@
 
 @section('content')
 
-    <!-- Breadcrum Start -->
-    <nav aria-label="breadcrumb" style="--bs-breadcrumb-divider: '/';">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item ">Home</li>
-            <li class="breadcrumb-item ">Siswa</li>
-            <li class="breadcrumb-item active" aria-current="page"> Tambahkan Siswa</li>
-        </ol>
-    </nav>
-    <!-- Breadcrumb End -->
     <!-- Panel Start -->
     <div class="p-4 mb-4 border rounded bg-light">
         <div class="row">
