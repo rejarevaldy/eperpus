@@ -11,19 +11,19 @@
                     <div class="mb-2 row">
                         <div class="col-sm">
                             <a href="/peminjaman/edit" class="text-white text-decoration-none">
-                                <button class="px-4 py-2 btn btn-primary fw-bold "><i class="fas fa-edit "></i>
+                                <button class="px-4 py-2 btn btn-outline-primary fw-bold "><i class="fas fa-edit "></i>
                                     <div class="d-none d-sm-inline"> Edit</div>
                                 </button>
                             </a>
 
                             <!-- Button trigger modal -->
-                            <button type="button" class="px-4 py-2 btn btn-danger fw-bold" data-bs-toggle="modal"
+                            <button type="button" class="px-4 py-2 btn btn-outline-danger fw-bold" data-bs-toggle="modal"
                                 data-bs-target="#deleteModal">
                                 <i class="fas fa-trash"></i>
                                 <div class="d-none d-sm-inline"> Delete</div>
                             </button>
 
-                            <button type="button" class="px-4 py-2 btn btn-secondary fw-bold">
+                            <button type="button" class="px-4 py-2 btn btn-outline-secondary fw-bold">
                                 <a href="../peminjaman" class="text-white text-decoration-none"><i
                                         class="fas fa-caret-square-left"></i>
                                     <div class="d-none d-sm-inline"> Back</div>
@@ -36,7 +36,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="deleteModalLabel">Konfirmasi</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            <button type="button" class="btn-outline-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
 
                                         </div>
@@ -45,9 +45,9 @@
                                             Menghapus []
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="px-3 py-1 btn btn-outline-secondary"
+                                            <button type="button" class="px-3 py-1 btn btn-outline-outline-secondary"
                                                 data-bs-dismiss="modal">No</button>
-                                            <button type="button" class="px-3 py-1 btn btn-danger">Yes</button>
+                                            <button type="button" class="px-3 py-1 btn btn-outline-danger">Yes</button>
                                         </div>
                                     </div>
                                 </div>

@@ -11,9 +11,9 @@
                  </div>
                  <div class="mb-2 row">
                      <div class="col-sm">
-                         <button type="button" class="px-4 py-2 btn btn-secondary fw-bold"><i
+                         <button type="button" class="px-4 py-2 btn btn-outline-secondary fw-bold"><i
                                  class="fas fa-caret-square-left"></i>
-                             <a class="text-white d-none d-sm-inline text-decoration-none" href="{{ url()->previous() }}">
+                             <a class="text-secondary text-secondary-hover d-none d-sm-inline text-decoration-none" href="{{ url()->previous() }}">
                                  Back</a>
                          </button>
                      </div>

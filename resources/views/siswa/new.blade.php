@@ -5,7 +5,7 @@
     <!-- Panel Start -->
     @if (session('status'))
         <div class="alert alert-success alert-dismissible">
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <button type="button" class="btn-outline-close" data-bs-dismiss="alert"></button>
             <strong>Success!</strong> {{ session('status') }}
         </div>
     @endif
@@ -66,17 +66,17 @@
                                             <input type="file" class="form-control" name="file" onchange="preview(this)">
                                         </div>
                                     </div>
-                                    <button type="submit" class="px-4 py-2 mt-3 btn btn-primary fw-bold"><i
+                                    <button type="submit" class="px-4 py-2 mt-3 btn btn-outline-primary fw-bold"><i
                                             class="fas fa-plus"></i>
                                         <div class="d-none d-sm-inline"> Tambahkan</div>
                                     </button>
-                                    <button type="reset" class="px-4 py-2 mt-3 btn btn-danger fw-bold" value="reset"><i
+                                    <button type="reset" class="px-4 py-2 mt-3 btn btn-outline-danger fw-bold" value="reset"><i
                                             class="fas fa-undo"></i>
                                         <div class="d-none d-sm-inline"> Reset</div>
                                     </button>
-                                    <button type="button" class="px-4 py-2 mt-3 btn btn-secondary fw-bold"><i
+                                    <button type="button" class="px-4 py-2 mt-3 btn btn-outline-secondary fw-bold"><i
                                             class="fas fa-caret-square-left"></i>
-                                        <a class="text-white d-none d-sm-inline text-decoration-none" href="{{ url()->previous() }}">
+                                        <a class="text-secondary text-secondary-hover d-none d-sm-inline text-decoration-none" href="{{ url()->previous() }}">
                                             Back</a>
                                     </button>
                                 </div>

@@ -3350,6 +3350,10 @@ fieldset:disabled .btn {
     border-color: #6c757d
 }
 
+.btn-outline-secondary a:hover {
+    color: #fff !important;
+}
+
 .btn-check:focus+.btn-outline-secondary,
 .btn-outline-secondary:focus {
     box-shadow: 0 0 0 .25rem rgba(108, 117, 125, .5)

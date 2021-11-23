@@ -11,18 +11,18 @@
                     <div class="mb-2 row">
                         <div class="col-sm">
                             <a href="/peminjaman/new" class="text-white text-decoration-none">
-                                <button class="px-4 py-2 btn btn-primary fw-bold "><i class="fas fa-plus "></i>
+                                <button class="px-4 py-2 btn btn-outline-primary fw-bold "><i class="fas fa-plus "></i>
                                     <div class="d-none d-sm-inline"> New
                                 </button>
                             </a>
-                            <button class="px-4 py-2 btn btn-success fw-bold "><i class="fas fa-file-excel"></i>
+                            <button class="px-4 py-2 btn btn-outline-success fw-bold "><i class="fas fa-file-excel"></i>
                                 <div class="d-none d-sm-inline"> Export to Excel</div>
                             </button>
-                            <button class="px-4 py-2 btn btn-danger fw-bold "><i class="fas fa-file-pdf"></i>
+                            <button class="px-4 py-2 btn btn-outline-danger fw-bold "><i class="fas fa-file-pdf"></i>
                                 <div class="d-none d-sm-inline"> Export to PDF</div>
                             </button>
                             <a href="" class="text-white text-decoration-none">
-                                <button class="px-4 py-2 btn btn-secondary fw-bold "><i class="fas fa-history"></i>
+                                <button class="px-4 py-2 btn btn-outline-secondary fw-bold "><i class="fas fa-history"></i>
                                     <div class="d-none d-sm-inline">Log Audit
                                 </button>
                             </a>
@@ -62,7 +62,7 @@
                                 </td>
                                 <td>
                                     <a href="/peminjaman/detail"
-                                        class="py-1 text-center text-decoration-none btn btn-outline-primary"><i
+                                        class="py-1 text-center text-decoration-none btn btn-outline-outline-primary"><i
                                             class="fa fa-info-circle"></i> Detail </a>
                                 </td>
                             </tr>
@@ -77,7 +77,7 @@
                                 </td>
                                 <td>
                                     <a href="/peminjaman/detail"
-                                        class="py-1 text-center text-decoration-none btn btn-outline-primary"><i
+                                        class="py-1 text-center text-decoration-none btn btn-outline-outline-primary"><i
                                             class="fa fa-info-circle"></i> Detail </a>
                                 </td>
                             </tr>
@@ -92,7 +92,7 @@
                                 </td>
                                 <td>
                                     <a href="/peminjaman/detail"
-                                        class="py-1 text-center text-decoration-none btn btn-outline-primary"><i
+                                        class="py-1 text-center text-decoration-none btn btn-outline-outline-primary"><i
                                             class="fa fa-info-circle"></i> Detail </a>
                                 </td>
                             </tr>

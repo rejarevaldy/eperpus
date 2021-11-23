@@ -10,18 +10,18 @@
                     <div class="mb-2 row">
                         <div class="col-sm">
                             <a href="/siswa/tambahkan" class="text-white text-decoration-none">
-                                <button class="px-4 py-2 btn btn-primary fw-bold "><i class="fas fa-plus"></i>
+                                <button class="px-4 py-2 btn btn-outline-primary fw-bold "><i class="fas fa-plus"></i>
                                     <div class="d-none d-sm-inline"> New
                                 </button>
                             </a>
-                            <button class="px-4 py-2 btn btn-success fw-bold "><i class="fas fa-file-excel"></i>
+                            <button class="px-4 py-2 btn btn-outline-success fw-bold "><i class="fas fa-file-excel"></i>
                                 <div class="d-none d-sm-inline"> Export to Excel</div>
                             </button>
-                            <button class="px-4 py-2 btn btn-danger fw-bold "><i class="fas fa-file-pdf"></i>
+                            <button class="px-4 py-2 btn btn-outline-danger fw-bold "><i class="fas fa-file-pdf"></i>
                                 <div class="d-none d-sm-inline"> Export to PDF</div>
                             </button>
                             <a href="" class="text-white text-decoration-none">
-                                <button class="px-4 py-2 btn btn-secondary fw-bold "><i class="fas fa-history"></i>
+                                <button class="px-4 py-2 btn btn-outline-secondary fw-bold "><i class="fas fa-history"></i>
                                     <div class="d-none d-sm-inline">Log Audit
                                 </button>
                             </a>
@@ -74,7 +74,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="deleteModalLabel">Konfirmasi</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            <button type="button" class="btn-outline-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
@@ -85,9 +85,9 @@
                                             <form action="{{ route('siswa.delete', $siswa->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="button" class="px-3 py-1 btn btn-outline-secondary"
+                                                <button type="button" class="px-3 py-1 btn btn-outline-outline-secondary"
                                                     data-bs-dismiss="modal">No</button>
-                                                <button type="submit" class="px-3 py-1 btn btn-danger">Yes</button>
+                                                <button type="submit" class="px-3 py-1 btn btn-outline-danger">Yes</button>
                                             </form>
                                         </div>
                                     </div>

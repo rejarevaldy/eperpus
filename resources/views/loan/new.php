@@ -64,15 +64,15 @@
                                             class="fas fa-calendar-minus text-secondary"></i></span>
                                 </div>
                             </div>
-                            <button name="submit" type="submit" class="px-4 py-2 mt-3 btn btn-primary fw-bold"><i
+                            <button name="submit" type="submit" class="px-4 py-2 mt-3 btn btn-outline-primary fw-bold"><i
                                     class="fas fa-plus"></i>
                                 <div class="d-none d-sm-inline"> Tambahkan</div>
                             </button>
-                            <button type="reset" class="px-4 py-2 mt-3 btn btn-danger fw-bold" value="reset"><i
+                            <button type="reset" class="px-4 py-2 mt-3 btn btn-outline-danger fw-bold" value="reset"><i
                                     class="fas fa-undo"></i>
                                 <div class="d-none d-sm-inline"> Reset</div>
                             </button>
-                            <button type="button" class="px-4 py-2 mt-3 btn btn-secondary fw-bold">
+                            <button type="button" class="px-4 py-2 mt-3 btn btn-outline-secondary fw-bold">
                                 <a href="../peminjaman" class="text-white text-decoration-none"><i
                                         class="fas fa-caret-square-left"></i>
                                     <div class="d-none d-sm-inline"> Back</div>

@@ -10,10 +10,10 @@
                     <h2 class="mb-5 ">Audit</h2>
                     <div class="mb-2 row">
                         <div class="col-sm">
-                            <button class="px-4 py-2 btn btn-success fw-bold "><i class="fas fa-file-excel"></i>
+                            <button class="px-4 py-2 btn btn-outline-success fw-bold "><i class="fas fa-file-excel"></i>
                                 <div class="d-none d-sm-inline"> Export to Excel</div>
                             </button>
-                            <button class="px-4 py-2 btn btn-danger fw-bold "><i class="fas fa-file-pdf"></i>
+                            <button class="px-4 py-2 btn btn-outline-danger fw-bold "><i class="fas fa-file-pdf"></i>
                                 <div class="d-none d-sm-inline"> Export to PDF</div>
                             </button>
                         </div>
