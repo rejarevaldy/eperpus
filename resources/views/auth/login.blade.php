@@ -44,33 +44,50 @@
                         <div class="row">
                             <div class="mx-auto col-md-6 col-lg-8">
                                 <h3 class="mb-4 login-heading fs-2 fw-bold">ePerpustakaan</h3>
-                                <form>
+                                <form action="{{ route('login') }}" method="POST">
+                                    @csrf
                                     <div class="mb-3 form-floating">
                                         <input type="text" class="form-control bg-input" id="floatingInput"
-                                            placeholder="Username">
+                                            placeholder="Username" name="username">
+                                        @error('username')
+                                            <div class="text-danger">
+                                                * {{ $message }}
+                                            </div>
+                                        @enderror
                                         <label for="floatingInput">Username</label>
                                     </div>
                                     <div class="mb-3 form-floating">
+
                                         <input type="password" class="form-control bg-input" id="floatingPassword"
-                                            placeholder="Password">
+                                            placeholder="Password" name="password">
+                                        @error('password')
+                                            <div class="text-danger">
+                                                * {{ $message }}
+                                            </div>
+                                        @enderror
                                         <label for="floatingPassword">Password</label>
                                     </div>
 
                                     <div class="mb-3 form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="rememberPasswordCheck">
-                                        <label class="form-check-label" for="rememberPasswordCheck">
-                                            Remember password
+                                        <input class="form-check-input" type="checkbox" value="" id="remember"
+                                            name="remember">
+                                        <label class="form-check-label" for="remember">
+                                            Remember me
                                         </label>
                                     </div>
 
                                     <div class="mb-5 d-grid">
                                         <button class="mb-2 btn btn-lg btn-primary btn-login text-uppercase fw-bold"
-                                            type="submit"><a href="index.php"
-                                                class="text-white text-decoration-none">Login</a></button>
+                                            type="submit">Login</button>
                                     </div>
 
                                     <p class="text-center text-secondary">SMKN 2 Banjarmasin</p>
+
+                                    @if (session('status'))
+                                        <div class="p-4 mb-6 text-center text-white bg-red-500 rounded-lg">
+                                            {{ session('status') }}
+                                        </div>
+                                    @endif
 
                                 </form>
                             </div>

@@ -3,7 +3,12 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item ">Home</li>
             <li class="breadcrumb-item ">{{ $title }}</li>
-            <li class="breadcrumb-item active" aria-current="page">{{ $subtitle }}</li>
+            @if ($sub !== null)
+                <li class="breadcrumb-item active" aria-current="page">{{ $sub }}</li>
+            @endif
+            @if (!$item !== null)
+                <li class="breadcrumb-item active" aria-current="page">{{ $item }}</li>
+            @endif
         </ol>
     </nav>
     <!-- Breadcrumb End -->

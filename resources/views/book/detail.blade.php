@@ -10,7 +10,7 @@
                     <h2 class="mb-5 ">Detail Buku</h2>
                     <div class="mb-2 row">
                         <div class="col-sm">
-                            <a href="/buku/edit" class="text-white text-decoration-none">
+                            <a href="/buku/edit/{{ $book->id }}" class="text-white text-decoration-none">
                                 <button class="px-4 py-2 btn btn-primary fw-bold "><i class="fas fa-edit "></i>
                                     <div class="d-none d-sm-inline"> Edit</div>
                                 </button>
@@ -21,9 +21,9 @@
                                 <i class="fas fa-trash"></i>
                                 <div class="d-none d-sm-inline"> Delete</div>
                             </button>
-                            <button type="button" class="px-4 py-2 btn btn-secondary fw-bold "><i
+                            <button type="button" class="px-4 py-2  btn btn-secondary fw-bold"><i
                                     class="fas fa-caret-square-left"></i>
-                                <div class="d-none d-sm-inline"> Back</div>
+                                <a class="d-none d-sm-inline text-white text-decoration-none" href="/buku/"> Back</a>
                             </button>
                             <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
                                 aria-hidden="true">
@@ -36,12 +36,16 @@
                                         </div>
                                         <div class="modal-body">
                                             <i class="fas fa-exclamation-circle text-warning"></i> Apakah Anda Yakin Akan
-                                            Menghapus []
+                                            Menghapus {{ $book->judul }}
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="px-3 py-1 btn btn-outline-secondary"
-                                                data-bs-dismiss="modal">No</button>
-                                            <button type="button" class="px-3 py-1 btn btn-danger">Yes</button>
+                                            <form action="{{ route('book.delete', $book->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="button" class="px-3 py-1 btn btn-outline-secondary"
+                                                    data-bs-dismiss="modal">No</button>
+                                                <button type="submit" class="px-3 py-1 btn btn-danger">Yes</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -61,7 +65,7 @@
                             <div class="mb-3 form-input">
                                 <label for="" class="mb-1 fw-bold"> Image</label>
                                 <div class="input-group">
-                                    <img src="https://dummyimage.com/200x200/ababab/ffffff" class="img-thumbnail"
+                                    <img src=" {{ asset('images/') }}/{{ $book->gambar_buku }}" class="img-thumbnail"
                                         alt="...">
                                 </div>
                             </div>
@@ -70,36 +74,26 @@
                             <div class="mb-3 form-input">
                                 <label for="" class="mb-1 fw-bold"> ISBN</label>
                                 <div class="input-group">
-                                    <input placeholder="ISBN" class="form-control" disabled>
+                                    <input placeholder="{{ $book->isbn }}" class="form-control" disabled>
                                 </div>
                             </div>
                             <div class="mb-3 form-input">
                                 <label for="" class="mb-1 fw-bold"> Judul</label>
                                 <div class="input-group">
-                                    <input placeholder="Judul" class="form-control" disabled>
+                                    <input placeholder="{{ $book->judul }}" class="form-control" disabled>
                                 </div>
                             </div>
                             <div class="mb-3 form-input">
                                 <label for="" class="mb-1 fw-bold"> Penulis</label>
                                 <div class="input-group">
-                                    <input placeholder="Penulis" class="form-control" disabled>
+                                    <input placeholder="{{ $book->penulis }}" class="form-control" disabled>
                                 </div>
                             </div>
 
                             <div class="mb-3 form-input">
                                 <label for="" class="mb-1 fw-bold"> Stok</label>
                                 <div class="input-group">
-                                    <input placeholder="Stok" class="form-control" disabled>
-                                </div>
-                            </div>
-                            <div class="mb-3 form-input">
-                                <label for="" class="mb-1 fw-bold"> Status</label>
-                                <div class="input-group">
-                                    <input placeholder="Status" class="form-control" disabled>
-
-                                    <span class="bg-light input-group-text" id="addon-wrapping"> <i
-                                            class='fa fa-info-circle text-secondary'></i>
-                                    </span>
+                                    <input placeholder="{{ $book->stok }}" class="form-control" disabled>
                                 </div>
                             </div>
                         </div>

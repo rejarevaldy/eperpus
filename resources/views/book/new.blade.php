@@ -13,45 +13,53 @@
                 <!-- Form Start -->
                 <div class="p-4 border rounded bg-light">
                     <div class="row">
-                        <form action="">
+                        <form action="{{ route('book.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="row">
                                 <div class="col-lg-2">
                                     <div class="mb-3 form-input">
                                         <label for="" class="mb-1 fw-bold"> Image
                                         </label>
                                         <div class="input-group">
-                                            <img src="https://dummyimage.com/200x200/ababab/ffffff" class="img-thumbnail"
+                                            <img src="" id="previewImg" class="img-thumbnail"
                                                 alt="...">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-10">
                                     <div class="mb-3 form-input">
-                                        <label for="" class="mb-1 fw-bold"> NIS</label>
+                                        <label for="" class="mb-1 fw-bold"> Judul</label>
                                         <div class="input-group">
-                                            <input placeholder="NIS" class="form-control" disabled>
+                                            <input value="" placeholder="Judul" class="form-control" name="judul">
                                         </div>
                                     </div>
                                     <div class="mb-3 form-input">
-                                        <label for="" class="mb-1 fw-bold"> Nama</label>
+                                        <label for="" class="mb-1 fw-bold"> ISBN</label>
                                         <div class="input-group">
-                                            <input placeholder="Nama" class="form-control">
+                                            <input value="" placeholder="ISBN" class="form-control" name="isbn">
                                         </div>
                                     </div>
                                     <div class="mb-3 form-input">
-                                        <label for="" class="mb-1 fw-bold"> Kelas</label>
+                                        <label for="" class="mb-1 fw-bold"> Penulis</label>
                                         <div class="input-group">
-                                            <input placeholder="Kelas" class="form-control">
+                                            <input value="" placeholder="Penulis" class="form-control" name="penulis">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 form-input">
+                                        <label for="" class="mb-1 fw-bold"> Stok</label>
+                                        <div class="input-group">
+                                            <input type='number' value="" placeholder="Stok" class="form-control" name="stok">
                                         </div>
                                     </div>
                                     <div class="mb-3 input-group">
                                         <label for="" class="mb-1 fw-bold"> Image
                                         </label>
                                         <div class="input-group">
-                                            <input type="file" class="form-control" id="inputGroupFile02">
+                                            <input type="file" class="form-control" name="file" onchange="preview(this)">
                                         </div>
                                     </div>
-                                    <button type="button" class="px-4 py-2 mt-3 btn btn-primary fw-bold"><i
+
+                                    <button type="submit" class="px-4 py-2 mt-3 btn btn-primary fw-bold"><i
                                             class="fas fa-plus"></i>
                                         <div class="d-none d-sm-inline"> Tambahkan</div>
                                     </button>
@@ -60,9 +68,9 @@
                                         <div class="d-none d-sm-inline"> Reset</div>
                                     </button>
                                     <button type="button" class="px-4 py-2 mt-3 btn btn-secondary fw-bold"><i
-                                            class="fas fa-caret-square-left"></i>
-                                        <div class="d-none d-sm-inline"> Back</div>
-                                    </button>
+                                        class="fas fa-caret-square-left"></i>
+                                    <a class="d-none d-sm-inline text-white text-decoration-none" href="/buku/"> Back</a>
+                                </button>
                                 </div>
                             </div>
                         </form>
@@ -73,5 +81,18 @@
         </div>
     </div>
     <!-- Content End -->
+
+    <script>
+        function preview(input) {
+            var file = $("input[type=file]").get(0).files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function() {
+                    $('#previewImg').attr('src', reader.result)
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
 
 @endsection

@@ -19,7 +19,6 @@
 
     <!-- Page content wrapper-->
     <div id="page-content-wrapper">
-
         <!-- Nav Start -->
         </nav>
         <header class="py-3 mb-3 bg-light border-bottom">
@@ -29,7 +28,7 @@
                     <div class="flex-shrink-0 px-1 dropdown">
                         <a href="#" class="d-block link-dark text-decoration-none " id="dropdownUser2"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            Username
+                            {{ auth()->user()->nama }}
                             <i class='fa fa-angle-down'></i>
                             <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.3iumuUC5lngNt-nt7xylQQHaHa%26pid%3DApi&f=1"
                                 alt="Username" width="30" height="30" class="border rounded-circle">
@@ -40,7 +39,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-sign-out-alt"></i> Sign
+                            <li><a class="dropdown-item text-danger" href="{{ route('logout') }}"><i class="fas fa-sign-out-alt"></i> Sign
                                     out</a>
                             </li>
                         </ul>

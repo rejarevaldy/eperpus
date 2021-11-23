@@ -1,0 +1,99 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Book;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class BookController extends Controller
+{
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function index()
+    {
+        return view('book.index', [
+            "title" => "Buku",
+            "sub" => null,
+            "item" => null,
+            "books" => Book::all()
+        ]);
+    }
+
+    public function detail(Book $book)
+    {
+        return view('book.detail', [
+            "title" => "Buku",
+            "sub" => "Detail",
+            "item" => $book->judul,
+            "book" => $book
+        ]);
+    }
+
+    public function addBook()
+    {
+        return view('book.new', [
+            "title" => "Buku",
+            "sub" => "Tambahkan",
+            "item" => null,
+        ]);
+    }
+
+    public function storeBook(Request $request)
+    {
+        $image = $request->file('file');
+        $imageName = time() . '.' . $image->extension();
+        $image->move(public_path('images'), $imageName);
+
+        $book = new Book();
+        $book->judul = $request->judul;
+        $book->isbn = $request->isbn;
+        $book->penulis = $request->penulis;
+        $book->stok = $request->stok;
+        $book->gambar_buku = $imageName;
+        $book->save();
+
+        return redirect()->back()->with('status', 'Buku berhasil ditambahkan');
+    }
+
+    public function editBook($id)
+    {
+        $book = Book::find($id);
+
+        return view('book.edit', [
+            "title" => "Buku",
+            "sub" => "Edit",
+            "item" => $book->judul,
+            "book" => $book
+        ]);
+    }
+
+    public function updateBook(Request $request, $id)
+    {
+        $book = Book::find($id);
+        $book->judul = $request->judul;
+        $book->isbn = $request->isbn;
+        $book->penulis = $request->penulis;
+        $book->stok = $request->stok;
+        if ($request->has('image')) {
+            $image = $request->file('file');
+            $imageName = time() . '.' . $image->extension();
+            $image->move(public_path('images'), $imageName);
+            return $book->gambar_buku = $imageName;
+        } else {
+            $book->gambar_buku = $book->gambar_buku;
+        }
+        $book->update();
+        return redirect()->back()->with('status', 'Buku berhasil diperbarui');
+    }
+
+    public function destroy($id)
+    {
+        $Book = Book::find($id);
+        $Book->delete();
+        return redirect('/buku/');
+    }
+}
