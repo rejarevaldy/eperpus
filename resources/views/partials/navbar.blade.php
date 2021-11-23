@@ -30,11 +30,11 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             {{ auth()->user()->nama }}
                             <i class='fa fa-angle-down'></i>
-                            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.3iumuUC5lngNt-nt7xylQQHaHa%26pid%3DApi&f=1"
+                            <img src="{{ asset('images/') }}/{{ auth()->user()->gambar_user }}"
                                 alt="Username" width="30" height="30" class="border rounded-circle">
                         </a>
                         <ul class="mt-4 shadow dropdown-menu me-0" aria-labelledby="dropdownUser2">
-                            <li><a class="dropdown-item" href="/profil/"><i class="fas fa-user-cog"></i> Edit
+                            <li><a class="dropdown-item" href="/profil/"><i class="fas fa-user-cog"></i> 
                                     Profile</a></li>
                             <li>
                                 <hr class="dropdown-divider">

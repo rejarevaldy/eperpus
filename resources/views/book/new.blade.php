@@ -3,10 +3,16 @@
 @section('content')
 
     <!-- Panel Start -->
+    @if (session('status'))
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Success!</strong> {{ session('status') }}
+        </div>
+    @endif
     <div class="p-4 mb-4 border rounded bg-light">
         <div class="row">
             <div class="col-lg-12 ">
-                <div class="p-4 mb-4 bg-light">
+                <div class="p-2 mb-4 bg-light">
                     <h2 class="mb-2">Tambahkan Buku</h2>
                 </div>
                 <!-- Panel End -->
@@ -21,8 +27,7 @@
                                         <label for="" class="mb-1 fw-bold"> Image
                                         </label>
                                         <div class="input-group">
-                                            <img src="" id="previewImg" class="img-thumbnail"
-                                                alt="...">
+                                            <img src="" id="previewImg" class="img-thumbnail" alt="...">
                                         </div>
                                     </div>
                                 </div>
@@ -48,7 +53,8 @@
                                     <div class="mb-3 form-input">
                                         <label for="" class="mb-1 fw-bold"> Stok</label>
                                         <div class="input-group">
-                                            <input type='number' value="" placeholder="Stok" class="form-control" name="stok">
+                                            <input type='number' value="" placeholder="Stok" class="form-control"
+                                                name="stok">
                                         </div>
                                     </div>
                                     <div class="mb-3 input-group">
@@ -68,9 +74,10 @@
                                         <div class="d-none d-sm-inline"> Reset</div>
                                     </button>
                                     <button type="button" class="px-4 py-2 mt-3 btn btn-secondary fw-bold"><i
-                                        class="fas fa-caret-square-left"></i>
-                                    <a class="d-none d-sm-inline text-white text-decoration-none" href="/buku/"> Back</a>
-                                </button>
+                                            class="fas fa-caret-square-left"></i>
+                                        <a class="text-white d-none d-sm-inline text-decoration-none" href="/buku/">
+                                            Back</a>
+                                    </button>
                                 </div>
                             </div>
                         </form>

@@ -2,16 +2,15 @@
 
 @section('content')
 
-    <div class="p-4 mb-4 border rounded bg-light ">
-
+    <div class="p-4 mb-4 border rounded shadow-sm bg-light">
         <div class="row">
             <div class="col-lg-12">
-                <div class="p-4 rounded bg-light">
-                    <h2 class="mb-5 ">Siswa</h2>
+                <div class="p-2 rounded bg-light">
+                    <h2 class="mb-3 ">Siswa</h2>
                     <div class="mb-2 row">
                         <div class="col-sm">
-                            <a href="/siswa/new" class="text-white text-decoration-none">
-                                <button class="px-4 py-2 btn btn-primary fw-bold "><i class="fas fa-plus "></i>
+                            <a href="/siswa/tambahkan" class="text-white text-decoration-none">
+                                <button class="px-4 py-2 btn btn-primary fw-bold "><i class="fas fa-plus"></i>
                                     <div class="d-none d-sm-inline"> New
                                 </button>
                             </a>
@@ -34,43 +33,40 @@
     </div>
 
 
-    <div class="mt-4 row ">
+    <div class="mt-4 mb-4 row">
         <div class="col-lg-12 ">
-            <div class="p-4 border rounded bg-light">
+            <div class="p-4 border rounded shadow-sm bg-light ">
 
                 <!-- Tables Start-->
                 <table id="datatable" class="table table-bordered " style="width:100%">
                     <thead>
-                        <tr class="fw-bold">
+                        <tr class="text-center fw-bold">
                             <th>Nama</th>
                             <th>Nis</th>
                             <th>Kelas</th>
-                            <th>Jabatan</th>
 
                             <th class="sorting_none"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            @foreach ($siswas as $siswa)
+                        @foreach ($siswas as $siswa)
+                            <tr>
                                 <td>{{ $siswa->nama }}</td>
                                 <td>{{ $siswa->nis }}</td>
-                                <td>{{ $siswa->kelas }}</td>
-                                <td>{{ $siswa->role }}</td>
+                                <td>{{ $siswa->kelas }} - {{ $siswa->jurusan }}</td>
                                 <td>
-                                    <a href="/siswa/detail"
-                                        class="py-1 text-center text-decoration-none btn btn-outline-primary"><i
-                                            class="fa fa-info-circle"></i> Detail </a>
+                                    <a href="/siswa/detail/{{ $siswa->id }}"
+                                        class="py-1 text-center text-decoration-none"><i class="fa fa-info-circle"></i>
+                                        Detail </a>
                                 </td>
-                            @endforeach
+                            </tr>
+                        @endforeach
 
-                        </tr>
                     <tfoot>
-                        <tr class="fw-bold">
+                        <tr class="text-center fw-bold">
                             <th>Nama</th>
                             <th>Nis</th>
                             <th>Kelas</th>
-                            <th>Jabatan</th>
                             <th class="sorting_none"></th>
                         </tr>
                     </tfoot>
@@ -81,5 +77,6 @@
         </div>
     </div>
     </div>
+
 
 @endsection

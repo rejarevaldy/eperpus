@@ -3,6 +3,13 @@
 @section('content')
 
     <!-- Panel Start -->
+    @if (session('status'))
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Success!</strong> {{ session('status') }}
+        </div>
+    @endif
+    
     <div class="p-4 mb-4 border rounded bg-light">
         <div class="row">
             <div class="col-lg-12 ">
@@ -13,16 +20,17 @@
                 <!-- Form Start -->
                 <div class="p-4 border rounded bg-light">
                     <div class="row">
-                        <form action="{{ route('book.update' , $book->id) }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('book.update', $book->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
-                             <div class="row">
+                            <div class="row">
                                 <div class="col-lg-2">
                                     <div class="mb-3 form-input">
                                         <label for="" class="mb-1 fw-bold"> Image
                                         </label>
                                         <div class="input-group">
-                                            <img src="{{ asset('images/') }}/{{$book->gambar_buku}}" id="previewImg" class="img-thumbnail" alt="...">
+                                            <img src="{{ asset('images/') }}/{{ $book->gambar_buku }}" id="previewImg"
+                                                class="img-thumbnail" alt="...">
                                         </div>
                                     </div>
                                 </div>
@@ -30,33 +38,37 @@
                                     <div class="mb-3 form-input">
                                         <label for="" class="mb-1 fw-bold"> Judul</label>
                                         <div class="input-group">
-                                            <input value="{{$book->judul}}" placeholder="Judul" class="form-control" name="judul">
+                                            <input value="{{ $book->judul }}" placeholder="Judul" class="form-control"
+                                                name="judul">
                                         </div>
                                     </div>
                                     <div class="mb-3 form-input">
                                         <label for="" class="mb-1 fw-bold"> ISBN</label>
                                         <div class="input-group">
-                                            <input value="{{$book->isbn}}" placeholder="ISBN" class="form-control" name="isbn">
+                                            <input value="{{ $book->isbn }}" placeholder="ISBN" class="form-control"
+                                                name="isbn">
                                         </div>
                                     </div>
                                     <div class="mb-3 form-input">
                                         <label for="" class="mb-1 fw-bold"> Penulis</label>
                                         <div class="input-group">
-                                            <input value="{{$book->penulis}}" placeholder="Penulis" class="form-control" name="penulis">
+                                            <input value="{{ $book->penulis }}" placeholder="Penulis" class="form-control"
+                                                name="penulis">
                                         </div>
                                     </div>
                                     <div class="mb-3 form-input">
                                         <label for="" class="mb-1 fw-bold"> Stok</label>
                                         <div class="input-group">
-                                            <input type='number' value="{{$book->stok}}" placeholder="Stok" class="form-control"
-                                                name="stok">
+                                            <input type='number' value="{{ $book->stok }}" placeholder="Stok"
+                                                class="form-control" name="stok">
                                         </div>
                                     </div>
                                     <div class="mb-3 input-group">
                                         <label for="" class="mb-1 fw-bold"> Image
                                         </label>
                                         <div class="input-group">
-                                            <input value="{{ asset('images/') }}/{{ $book->gambar_buku }}" type="file" class="form-control" name="file" onchange="preview(this)">
+                                            <input value="{{ asset('images/') }}/{{ $book->gambar_buku }}" type="file"
+                                                class="form-control" name="file" onchange="preview(this)">
                                         </div>
                                     </div>
 
@@ -70,14 +82,12 @@
                                     </button>
                                     <button type="button" class="px-4 py-2 mt-3 btn btn-secondary fw-bold"><i
                                             class="fas fa-caret-square-left"></i>
-                                        <a class="d-none d-sm-inline text-white text-decoration-none" href="/buku/"> Back</a>
+                                        <a class="text-white d-none d-sm-inline text-decoration-none" href="/buku/">
+                                            Back</a>
                                     </button>
                                 </div>
                             </div>
                         </form>
-                        @if (session('status'))
-                            <p class="alert alert-success mt-3">{{ session('status') }}</p>
-                        @endif
                     </div>
                     <!-- Form End -->
                 </div>

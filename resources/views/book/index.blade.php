@@ -1,13 +1,11 @@
 @extends('layouts.main')
 
 @section('content')
-
-    <div class="p-4 mb-4 border rounded bg-light ">
-
+    <div class="p-4 mb-4 border rounded shadow-sm bg-light">
         <div class="row">
             <div class="col-lg-12">
-                <div class="p-4 rounded bg-light">
-                    <h2 class="mb-5 ">Buku</h2>
+                <div class="p-2 rounded bg-light">
+                    <h2 class="mb-3 ">Buku</h2>
                     <div class="mb-2 row">
                         <div class="col-sm">
                             <a href="/buku/tambahkan" class="text-white text-decoration-none">
@@ -31,50 +29,50 @@
                 </div>
             </div>
         </div>
+    </div>
 
+    <div class="mt-4 row">
+        <div class="col-lg-12 ">
+            <div class="p-4 border rounded shadow-sm bg-light">
 
-        <div class="mt-4 row ">
-            <div class="col-lg-12 ">
-                <div class="p-4 border rounded bg-light">
-
-                    <!-- Tables Start-->
-                    <table id="datatable" class="table table-bordered " style="width:100%">
-                        <thead>
-                            <tr class="fw-bold">
-                                <th>Judul</th>
-                                <th>Penulis</th>
-                                <th>ISBN</th>
-                                <th>Stok</th>
-                                <th class="sorting_none"></th>
+                <!-- Tables Start-->
+                <table id="datatable" class="table table-bordered " style="width:100%">
+                    <thead>
+                        <tr class="text-center fw-bold">
+                            <th>Judul</th>
+                            <th>Penulis</th>
+                            <th>ISBN</th>
+                            <th>Stok</th>
+                            <th class="sorting_none"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($books as $book)
+                            <tr>
+                                <td>{{ $book->judul }}</td>
+                                <td>{{ $book->penulis }}</td>
+                                <td>{{ $book->isbn }}</td>
+                                <td>{{ $book->stok }}</td>
+                                <td>
+                                    <a href="/buku/detail/{{ $book->id }}"
+                                        class="py-1 text-center text-decoration-none"><i class="fa fa-info-circle"></i>
+                                        Detail </a>
+                                </td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($books as $book)
-                                <tr>
-                                    <td>{{ $book->judul }}</td>
-                                    <td>{{ $book->penulis }}</td>
-                                    <td>{{ $book->isbn }}</td>
-                                    <td>{{ $book->stok }}</td>
-                                    <td>
-                                        <a href="/buku/detail/{{ $book->id }}" class="py-1 text-center text-decoration-none"><i
-                                                class="fa fa-info-circle"></i> Detail </a>
-                                    </td>
-                                </tr>
-                            @endforeach
+                        @endforeach
 
-                        <tfoot>
-                            <tr class="fw-bold">
-                                <th>Judul</th>
-                                <th>Penulis</th>
-                                <th>ISBN</th>
-                                <th>Stok</th>
-                                <th class="sorting_none"></th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                    <!-- Tables End -->
+                    <tfoot>
+                        <tr class="text-center fw-bold">
+                            <th>Judul</th>
+                            <th>Penulis</th>
+                            <th>ISBN</th>
+                            <th>Stok</th>
+                            <th class="sorting_none"></th>
+                        </tr>
+                    </tfoot>
+                </table>
+                <!-- Tables End -->
 
-                </div>
             </div>
         </div>
     </div>

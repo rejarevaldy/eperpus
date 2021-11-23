@@ -18,9 +18,12 @@ class CreateUsersTable extends Migration
             $table->string('username');
             $table->string('nama');
             $table->string('nis');
-            $table->string('kelas');
-            $table->string('gambar_user')->default('user.png');
+            $table->enum('kelas', [10, 11, 12]);
+            $table->enum('jurusan', ['MM', 'RPL', 'DI', 'PS', 'KI', 'ANMS']);
+            $table->enum('gender', ['Pria', 'Wanita']);
+            $table->enum('agama', ['Islam', 'Kristen', 'Buddha', 'Hindu']);
             $table->enum('role', ['admin', 'siswa']);
+            $table->string('gambar_user')->default('user.png');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

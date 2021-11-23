@@ -23,7 +23,7 @@ class BookController extends Controller
         ]);
     }
 
-    public function detail(Book $book)
+    public function detailBook(Book $book)
     {
         return view('book.detail', [
             "title" => "Buku",

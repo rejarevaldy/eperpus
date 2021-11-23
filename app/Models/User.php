@@ -18,12 +18,6 @@ class User extends Authenticatable
      * @var string[]
      */
 
-    protected $fillable = [
-        'username',
-        'password',
-        'name',
-    ];
-
     protected $guarded = [
         'id',
     ];
@@ -38,6 +32,11 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $jurusan =  ['MM', 'RPL', 'DI', 'PS', 'KI', 'ANMS'];
+    protected $kelas = [10, 11, 12];
+    protected $gender = ['Pria', 'Wanita'];
+    protected $agama = ['Islam', 'Kristen', 'Buddha', 'Hindu'];
+    
     /**
      * The attributes that should be cast.
      *

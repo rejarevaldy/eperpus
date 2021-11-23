@@ -2,6 +2,7 @@
 
 @section('content')
 
+
     <!-- Panel Start -->
     <div class="p-4 mb-4 border rounded shadow-sm bg-light">
         <div class="row">
@@ -10,7 +11,7 @@
                     <h2 class="mb-3 ">Detail Siswa</h2>
                     <div class="mb-2 row">
                         <div class="col-sm">
-                            <a href="/buku/edit/{{ $book->id }}" class="text-white text-decoration-none">
+                            <a href="/siswa/edit/{{ $siswa->id }}" class="text-white text-decoration-none">
                                 <button class="px-4 py-2 btn btn-primary fw-bold "><i class="fas fa-edit "></i>
                                     <div class="d-none d-sm-inline"> Edit</div>
                                 </button>
@@ -23,7 +24,8 @@
                             </button>
                             <button type="button" class="px-4 py-2 btn btn-secondary fw-bold"><i
                                     class="fas fa-caret-square-left"></i>
-                                <a class="text-white d-none d-sm-inline text-decoration-none" href="/buku/"> Back</a>
+                                <a class="text-white d-none d-sm-inline text-decoration-none" href="/siswa/">
+                                    Back</a>
                             </button>
                             <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
                                 aria-hidden="true">
@@ -36,10 +38,10 @@
                                         </div>
                                         <div class="modal-body">
                                             <i class="fas fa-exclamation-circle text-warning"></i> Apakah Anda Yakin Akan
-                                            Menghapus {{ $book->judul }}
+                                            Menghapus {{ $siswa->nama }}
                                         </div>
                                         <div class="modal-footer">
-                                            <form action="{{ route('book.delete', $book->id) }}" method="POST">
+                                            <form action="{{ route('siswa.delete', $siswa->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="button" class="px-3 py-1 btn btn-outline-secondary"
@@ -57,44 +59,86 @@
         </div>
     </div>
     <!-- Panel End -->
+
     <!-- Form Start -->
     <div class="p-4 mb-4 border rounded shadow-sm bg-light">
         <div class="row">
-            <form action="">
+            <form action="{{ route('siswa.store') }}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="row">
                     <div class="col-lg-2">
                         <div class="mb-3 form-input">
-                            <label for="" class="mb-1 fw-bold"> Image</label>
+                            <label for="" class="mb-1 fw-bold"> Image
+                            </label>
                             <div class="input-group">
-                                <img src=" {{ asset('images/') }}/{{ $book->gambar_buku }}" class="img-thumbnail"
-                                    alt="...">
+                                <img src="{{ asset('images') }}/{{ $siswa->gambar_user }}" id="previewImg"
+                                    class="img-thumbnail" alt="...">
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-10">
+
+                    <div class="col-lg-5">
                         <div class="mb-3 form-input">
-                            <label for="" class="mb-1 fw-bold"> ISBN</label>
+                            <label for="" class="mb-1 fw-bold"> Nama</label>
                             <div class="input-group">
-                                <input placeholder="{{ $book->isbn }}" class="form-control" disabled>
+                                <input value="{{ $siswa->nama }}" placeholder="Nama" class="form-control" name="nama"
+                                    disabled>
                             </div>
                         </div>
                         <div class="mb-3 form-input">
-                            <label for="" class="mb-1 fw-bold"> Judul</label>
+                            <label for="" class="mb-1 fw-bold"> Username</label>
                             <div class="input-group">
-                                <input placeholder="{{ $book->judul }}" class="form-control" disabled>
+                                <input value="{{ $siswa->username }}" placeholder="Username" class="form-control"
+                                    name="username" disabled>
                             </div>
                         </div>
                         <div class="mb-3 form-input">
-                            <label for="" class="mb-1 fw-bold"> Penulis</label>
+                            <label for="" class="mb-1 fw-bold"> NIS</label>
                             <div class="input-group">
-                                <input placeholder="{{ $book->penulis }}" class="form-control" disabled>
+                                <input value="{{ $siswa->nis }}" placeholder="NIS" class="form-control" name="nis"
+                                    disabled>
                             </div>
                         </div>
 
-                        <div class="mb-3 form-input">
-                            <label for="" class="mb-1 fw-bold"> Stok</label>
+
+                    </div>
+
+                    <div class="col-lg-5">
+                        <div class="mb-3 input-group">
+                            <label for="" class="mb-1 fw-bold"> Kelas
+                            </label>
                             <div class="input-group">
-                                <input placeholder="{{ $book->stok }}" class="form-control" disabled>
+                                <select class="form-select" id="inputGroupSelect01" name="kelas" disabled>
+                                    <option value="{{ $siswa->kelas }}">{{ $siswa->kelas }}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 input-group">
+                            <label for="" class="mb-1 fw-bold"> Jurusan
+                            </label>
+                            <div class="input-group">
+                                <select class="form-select" id="inputGroupSelect01" name="jurusan" disabled>
+                                    <option value="{{ $siswa->jurusan }}">{{ $siswa->jurusan }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3 input-group">
+                            <label for="" class="mb-1 fw-bold"> Agama
+                            </label>
+                            <div class="input-group">
+                                <select class="form-select" id="inputGroupSelect01" name="agama" disabled>
+                                    <option value="{{ $siswa->agama }}">{{ $siswa->agama }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3 input-group">
+                            <label for="" class="mb-1 fw-bold"> Gender
+                            </label>
+                            <div class="input-group">
+                                <select class="form-select" id="inputGroupSelect01" name="gender" disabled>
+                                    <option value="{{ $siswa->gender }}">{{ $siswa->gender }}</option>
+                                </select>
                             </div>
                         </div>
                     </div>
