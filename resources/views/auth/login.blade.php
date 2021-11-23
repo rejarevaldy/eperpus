@@ -38,6 +38,9 @@
     <div class="container-fluid ps-md-0 ">
         <div class="row g-0">
             <!-- Login  -->
+            <!-- Background Image -->
+            <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"><img class="img-fluid"
+                    src="{{ asset('images/library.png') }}" alt="" srcset=""></div>
             <div class="col-md-8 col-lg-6">
                 <div class="py-5 login d-flex align-items-center">
                     <div class="container">
@@ -95,9 +98,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Background Image -->
-            <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"><img class="img-fluid"
-                    src="{{ asset('images/library.png') }}" alt="" srcset=""></div>
         </div>
     </div>
 

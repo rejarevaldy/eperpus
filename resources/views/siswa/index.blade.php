@@ -41,35 +41,60 @@
                 <table id="datatable" class="table table-bordered " style="width:100%">
                     <thead>
                         <tr class="text-center fw-bold">
+                            <th style="width: 1%">No</th>
                             <th>Nama</th>
-                            <th>Nis</th>
-                            <th>Kelas</th>
-
-                            <th class="sorting_none"></th>
+                            <th style="width: 15%">Nis</th>
+                            <th style="width: 10%">Kelas</th>
+                            <th class="sorting_none" style="width: 20%"></th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($siswas as $siswa)
                             <tr>
+                                <td class="text-center">{{ $loop->iteration }}</td>
                                 <td>{{ $siswa->nama }}</td>
                                 <td>{{ $siswa->nis }}</td>
                                 <td>{{ $siswa->kelas }} - {{ $siswa->jurusan }}</td>
-                                <td>
+                                <td class="text-center">
                                     <a href="/siswa/detail/{{ $siswa->id }}"
-                                        class="py-1 text-center text-decoration-none"><i class="fa fa-info-circle"></i>
-                                        Detail </a>
+                                        class="py-1 text-center text-decoration-none ms-2 me-2">
+                                        View </a>
+                                    <a href="/siswa/edit/{{ $siswa->id }}"
+                                        class="py-1 text-center text-decoration-none ms-2 me-2">
+                                        Edit </a>
+                                    <button type="text" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                        class="py-1 text-center bg-white border-0 text-danger text-decoration-none ms-2 me-2">
+                                        Delete </button>
                                 </td>
                             </tr>
+                            {{-- Modal Start --}}
+                            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="deleteModalLabel">Konfirmasi</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <i class="fas fa-exclamation-circle text-warning"></i> Apakah Anda Yakin Akan
+                                            Menghapus {{ $siswa->nama }}
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form action="{{ route('siswa.delete', $siswa->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="button" class="px-3 py-1 btn btn-outline-secondary"
+                                                    data-bs-dismiss="modal">No</button>
+                                                <button type="submit" class="px-3 py-1 btn btn-danger">Yes</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- Modal End --}}
                         @endforeach
-
-                    <tfoot>
-                        <tr class="text-center fw-bold">
-                            <th>Nama</th>
-                            <th>Nis</th>
-                            <th>Kelas</th>
-                            <th class="sorting_none"></th>
-                        </tr>
-                    </tfoot>
                 </table>
                 <!-- Tables End -->
 

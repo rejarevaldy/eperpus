@@ -15,10 +15,10 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('username');
+            $table->string('username')->unique();
             $table->string('nama');
             $table->string('nis');
-            $table->enum('kelas', [10, 11, 12]);
+            $table->enum('kelas', [10, 11, 12, 13]);
             $table->enum('jurusan', ['MM', 'RPL', 'DI', 'PS', 'KI', 'ANMS']);
             $table->enum('gender', ['Pria', 'Wanita']);
             $table->enum('agama', ['Islam', 'Kristen', 'Buddha', 'Hindu']);

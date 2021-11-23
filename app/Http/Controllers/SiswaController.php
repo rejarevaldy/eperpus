@@ -13,6 +13,7 @@ class SiswaController extends Controller
     {
         $this->middleware('auth');
     }
+    
     public function index()
     {
         if (auth()->user()->role !== 'admin') {
@@ -32,7 +33,7 @@ class SiswaController extends Controller
     public function detailSiswa(User $user)
     {
         return view('siswa.detail', [
-            "title" => "siswa",
+            "title" => "Siswa",
             "sub" => "Detail",
             "item" => $user->nama,
             "siswa" => $user,
@@ -42,7 +43,7 @@ class SiswaController extends Controller
     public function addSiswa()
     {
         $jurusan =  ['MM', 'RPL', 'DI', 'PS', 'KI', 'ANMS'];
-        $kelas = [10, 11, 12];
+        $kelas = [10, 11, 12, 13];
         $gender = ['Pria', 'Wanita'];
         $agama = ['Islam', 'Kristen', 'Buddha', 'Hindu'];
 
@@ -88,11 +89,20 @@ class SiswaController extends Controller
     {
         $siswa = User::find($id);
 
+        $jurusan =  ['MM', 'RPL', 'DI', 'PS', 'KI', 'ANMS'];
+        $kelas = [10, 11, 12, 13];
+        $gender = ['Pria', 'Wanita'];
+        $agama = ['Islam', 'Kristen', 'Buddha', 'Hindu'];
+
         return view('siswa.edit', [
             "title" => "Siswa",
             "sub" => "Edit",
             "item" => $siswa->nama,
-            "siswa" => $siswa
+            "siswa" => $siswa,
+            "jurusan" => $jurusan,
+            "kelas" => $kelas,
+            "gender" => $gender,
+            "agama" => $agama
         ]);
     }
 
@@ -117,7 +127,7 @@ class SiswaController extends Controller
             $siswa->gambar_user = 'user.png';
         }
         $siswa->save();
-        return redirect()->back()->with('status', 'Buku berhasil diperbarui');
+        return redirect()->back()->with('status', 'Siswa berhasil diperbarui');
     }
 
     public function destroy($id)

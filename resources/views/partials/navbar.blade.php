@@ -34,8 +34,8 @@
                                 alt="Username" width="30" height="30" class="border rounded-circle">
                         </a>
                         <ul class="mt-4 shadow dropdown-menu me-0" aria-labelledby="dropdownUser2">
-                            <li><a class="dropdown-item" href="/profil/"><i class="fas fa-user-cog"></i> 
-                                    Profile</a></li>
+                            <li><a class="dropdown-item" href="/user/{{ auth()->user()->nama }}"><i class="fas fa-user-cog"></i> 
+                                    Detail Profile</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>

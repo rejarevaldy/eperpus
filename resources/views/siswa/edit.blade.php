@@ -68,7 +68,7 @@
                             </button>
                             <button type="button" class="px-4 py-2 mt-3 btn btn-secondary fw-bold"><i
                                     class="fas fa-caret-square-left"></i>
-                                <a class="text-white d-none d-sm-inline text-decoration-none" href="/siswa/">
+                                <a class="text-white d-none d-sm-inline text-decoration-none" href="{{ url()->previous() }}">
                                     Back</a>
                             </button>
                         </div>
@@ -80,7 +80,9 @@
                                 </label>
                                 <div class="input-group">
                                     <select class="form-select" id="inputGroupSelect01" name="kelas">
-                                        <option value="{{ $siswa->kelas }}">{{ $siswa->kelas }}</option>
+                                        @foreach ($kelas as $k)
+                                            <option value="{{ $k }}">{{ $k }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -90,7 +92,9 @@
                                 </label>
                                 <div class="input-group">
                                     <select class="form-select" id="inputGroupSelect01" name="jurusan">
-                                        <option value="{{ $siswa->jurusan }}">{{ $siswa->jurusan }}</option>
+                                        @foreach ($jurusan as $j)
+                                            <option value="{{ $j }}">{{ $j }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -99,7 +103,9 @@
                                 </label>
                                 <div class="input-group">
                                     <select class="form-select" id="inputGroupSelect01" name="agama">
-                                        <option value="{{ $siswa->agama }}">{{ $siswa->agama }}</option>
+                                        @foreach ($agama as $a)
+                                            <option value="{{ $a }}">{{ $a }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
@@ -108,7 +114,9 @@
                                 </label>
                                 <div class="input-group">
                                     <select class="form-select" id="inputGroupSelect01" name="gender">
-                                        <option value="{{ $siswa->gender }}">{{ $siswa->gender }}</option>
+                                        @foreach ($gender as $g)
+                                            <option value="{{ $g }}">{{ $g }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBooksTable extends Migration
+class CreateLoansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateBooksTable extends Migration
      */
     public function up()
     {
-        Schema::create('books', function (Blueprint $table) {
+        Schema::create('loans', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
-            $table->string('isbn');
-            $table->string('penulis')->nullable();
-            $table->string('gambar_buku')->default('buku.png');
-            $table->integer('stok');
+            $table->foreignId('user_id');
+            $table->foreignId('book_id');
+            $table->timestamp('tanggal_tenggat');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateBooksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('books');
+        Schema::dropIfExists('loans');
     }
 }

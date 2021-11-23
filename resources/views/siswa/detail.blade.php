@@ -24,9 +24,10 @@
                             </button>
                             <button type="button" class="px-4 py-2 btn btn-secondary fw-bold"><i
                                     class="fas fa-caret-square-left"></i>
-                                <a class="text-white d-none d-sm-inline text-decoration-none" href="/siswa/">
+                                <a class="text-white d-none d-sm-inline text-decoration-none" href="{{ url()->previous() }}">
                                     Back</a>
                             </button>
+                            {{-- Modal Start --}}
                             <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
@@ -52,6 +53,7 @@
                                     </div>
                                 </div>
                             </div>
+                            {{-- Modal End --}}
                         </div>
                     </div>
                 </div>

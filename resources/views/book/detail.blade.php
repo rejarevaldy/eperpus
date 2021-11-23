@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="p-2 rounded bg-light">
-                    <h2 class="mb-3 ">Detail Siswa</h2>
+                    <h2 class="mb-3 ">Detail Buku</h2>
                     <div class="mb-2 row">
                         <div class="col-sm">
                             <a href="/buku/edit/{{ $book->id }}" class="text-white text-decoration-none">
@@ -23,7 +23,7 @@
                             </button>
                             <button type="button" class="px-4 py-2 btn btn-secondary fw-bold"><i
                                     class="fas fa-caret-square-left"></i>
-                                <a class="text-white d-none d-sm-inline text-decoration-none" href="/buku/"> Back</a>
+                                <a class="text-white d-none d-sm-inline text-decoration-none" href="{{ url()->previous() }}"> Back</a>
                             </button>
                             <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
                                 aria-hidden="true">

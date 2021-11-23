@@ -75,7 +75,7 @@
                                     </button>
                                     <button type="button" class="px-4 py-2 mt-3 btn btn-secondary fw-bold"><i
                                             class="fas fa-caret-square-left"></i>
-                                        <a class="text-white d-none d-sm-inline text-decoration-none" href="/buku/">
+                                        <a class="text-white d-none d-sm-inline text-decoration-none" href="{{ url()->previous() }}">
                                             Back</a>
                                     </button>
                                 </div>

@@ -12,6 +12,9 @@ Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'store'])->name('login');
 Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
 
+// User
+Route::get('/user/{user:nama}', [UserController::class, 'index']);
+
 // Book
 Route::get('/buku', [BookController::class, 'index']);
 Route::get('/buku/detail/{book:id}', [BookController::class, 'detailBook']);

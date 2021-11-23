@@ -8,11 +8,15 @@ table.dataTable {
 
 table.dataTable thead th {
     font-weight: bold;
-    border: 1px solid rgb(223, 223, 223);
+    background-color: rgb(237, 236, 236);
+    border-top: 1px solid rgb(223, 223, 223);
+    border-left: 1px solid rgb(223, 223, 223);
+    border-right: 1px solid rgb(223, 223, 223);
 }
 
 table.dataTable thead th,
 table.dataTable thead td {
+    background-color: rgb(237, 236, 236);
     padding: 10px 18px;
 }
 
@@ -233,7 +237,7 @@ table.dataTable.order-column.hover tbody tr:hover.selected>.sorting_3 {
 }
 
 table.dataTable.no-footer {
-    border-bottom: 1px solid #111;
+    border-bottom: 1px solid #ddd;
 }
 
 table.dataTable.nowrap th,
@@ -405,15 +409,13 @@ table.dataTable td {
     cursor: pointer;
     *cursor: hand;
     color: #333 !important;
-    border: 1px solid transparent;
     border-radius: 2px;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.current,
 .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
-    color: #333 !important;
-    border: 1px solid #979797;
-    background-color: white;
+    color: #fff !important;
+    background-color: #2f54eb;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
@@ -421,20 +423,18 @@ table.dataTable td {
 .dataTables_wrapper .dataTables_paginate .paginate_button.disabled:active {
     cursor: default;
     color: #666 !important;
-    border: 1px solid transparent;
     background: transparent;
     box-shadow: none;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
     color: white !important;
-    border: 1px solid #111;
     background-color: #5976EF;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:active {
     outline: none;
-    background-color: #2f54eb;
+    background-color: #2f54eb !important;
 }
 
 .dataTables_wrapper .dataTables_paginate .ellipsis {
@@ -451,7 +451,7 @@ table.dataTable td {
     padding-top: 20px;
     text-align: center;
     font-size: 1.2em;
-    background-color: white;
+    background-color: #2f54eb;
 }
 
 .dataTables_wrapper .dataTables_length,
@@ -489,7 +489,7 @@ table.dataTable td {
 }
 
 .dataTables_wrapper.no-footer .dataTables_scrollBody {
-    border-bottom: 1px solid #111;
+    border-bottom: 1px solid #ddd;
 }
 
 .dataTables_wrapper.no-footer div.dataTables_scrollHead table.dataTable,
