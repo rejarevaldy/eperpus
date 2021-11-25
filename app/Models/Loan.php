@@ -5,11 +5,13 @@ namespace App\Models;
 use App\Models\Book;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Loan extends Model
+class Loan extends Model implements Auditable
 {
     use HasFactory;
+    use \OwenIt\Auditing\Auditable;
 
     protected $fillable = [
         'tanggal_tenggat',

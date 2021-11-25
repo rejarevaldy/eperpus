@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Exports\SiswaExport;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SiswaController extends Controller
 {
@@ -134,5 +136,11 @@ class SiswaController extends Controller
         $siswa = User::find($id);
         $siswa->delete();
         return redirect('/siswa/');
+    }
+
+    public function exportExcel()
+    {
+        $file_name = 'siswa_report_' . date('Y-m-d_H-i-s') . '.xlsx';
+        return Excel::download(new SiswaExport, $file_name);
     }
 }

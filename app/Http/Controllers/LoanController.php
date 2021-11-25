@@ -6,8 +6,10 @@ use Carbon\Carbon;
 use App\Models\Book;
 use App\Models\Loan;
 use App\Models\User;
+use App\Exports\LoanExport;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class LoanController extends Controller
 {
@@ -93,5 +95,11 @@ class LoanController extends Controller
         $loan = Loan::find($id);
         $loan->delete();
         return redirect('/peminjaman/');
+    }
+
+    public function exportExcel()
+    {
+        $file_name = 'loan_report' . date('Y-m-d_H-i-s') . '.xlsx';
+        return Excel::download(new LoanExport, $file_name);
     }
 }

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use Barryvdh\DomPDF\PDF;
+use App\Exports\BookExport;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BookController extends Controller
 {
@@ -79,7 +82,7 @@ class BookController extends Controller
             $image = $request->file('file');
             $imageName = time() . '.' . $image->extension();
             $image->move(public_path('images'), $imageName);
-             $book->gambar_buku = $imageName;
+            $book->gambar_buku = $imageName;
         } else {
             $book->gambar_buku = $book->gambar_buku;
         }
@@ -88,7 +91,7 @@ class BookController extends Controller
         $book->isbn = $request->isbn;
         $book->penulis = $request->penulis;
         $book->stok = $request->stok;
-           
+
         $book->save();
         return redirect()->back()->with('status', 'Buku berhasil diperbarui');
     }
@@ -99,4 +102,11 @@ class BookController extends Controller
         $book->delete();
         return redirect('/buku/');
     }
+
+    public function exportExcel()
+    {
+        $file_name = 'book_report_' . date('Y-m-d_H-i-s') . '.xlsx';
+        return Excel::download(new BookExport, $file_name);
+    }
+
 }

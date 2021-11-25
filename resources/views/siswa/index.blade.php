@@ -14,13 +14,13 @@
                                     <div class="d-none d-sm-inline"> New
                                 </button>
                             </a>
-                            <button class="px-4 py-2 btn btn-outline-success fw-bold "><i class="fas fa-file-excel"></i>
-                                <div class="d-none d-sm-inline"> Export to Excel</div>
-                            </button>
-                            <button class="px-4 py-2 btn btn-outline-danger fw-bold "><i class="fas fa-file-pdf"></i>
-                                <div class="d-none d-sm-inline"> Export to PDF</div>
-                            </button>
-                            <a href="" class="text-white text-decoration-none">
+                            <a href="/siswa/export/excel" class=" text-decoration-none">
+                                <button class="px-4 py-2 btn btn-outline-success fw-bold "><i class="fas fa-file-excel"></i>
+                                    <div class="d-none d-sm-inline">Export to Excel
+                                </button>
+                            </a>
+
+                            <a href="/audit/" class="text-white text-decoration-none">
                                 <button class="px-4 py-2 btn btn-outline-secondary fw-bold "><i class="fas fa-history"></i>
                                     <div class="d-none d-sm-inline">Log Audit
                                 </button>

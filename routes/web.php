@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuditController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\LoanController;
@@ -17,6 +18,10 @@ Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
 // User
 Route::get('/user/{user:nama}', [UserController::class, 'index']);
 
+// Audit
+Route::get('/audit', [AuditController::class, 'index']);
+Route::get('/audit/export/excel',  [AuditController::class, 'exportExcel']);
+
 // Loan
 Route::get('/peminjaman', [LoanController::class, 'index']);
 Route::get('/peminjaman/tambahkan', [LoanController::class, 'addLoan']);
@@ -25,7 +30,7 @@ Route::get('/peminjaman/detail/{loan:id}', [loanController::class, 'detailLoan']
 Route::get('/peminjaman/edit/{loan:id}', [LoanController::class, 'editLoan']);
 Route::put('/peminjaman/edit/{loan:id}', [LoanController::class, 'updateLoan'])->name('loan.update');
 Route::delete('/peminjaman/delete/{loan:id}', [LoanController::class, 'destroy'])->name('loan.delete');
-
+Route::get('/peminjaman/export/excel',  [LoanController::class, 'exportExcel']);
 
 // Book
 Route::get('/buku', [BookController::class, 'index']);
@@ -35,6 +40,9 @@ Route::post('/buku/tambahkan', [BookController::class, 'storeBook'])->name('book
 Route::get('/buku/edit/{book:id}', [BookController::class, 'editBook']);
 Route::put('/buku/edit/{book:id}', [BookController::class, 'updateBook'])->name('book.update');
 Route::delete('/buku/delete/{book:id}', [BookController::class, 'destroy'])->name('book.delete');
+Route::get('/buku/export/excel',  [BookController::class, 'exportExcel']);
+Route::get('/buku/export/pdf',  [BookController::class, 'exportPDF']);
+
 
 // Siswa/user
 Route::get('/siswa', [SiswaController::class, 'index']);
@@ -42,5 +50,6 @@ Route::get('/siswa/detail/{user:id}', [SiswaController::class, 'detailSiswa']);
 Route::get('/siswa/tambahkan', [SiswaController::class, 'addSiswa']);
 Route::post('/siswa/tambahkan', [SiswaController::class, 'storeSiswa'])->name('siswa.store');
 Route::get('/siswa/edit/{user:id}', [SiswaController::class, 'editSiswa']);
-Route::put('/siswa/edit/{siswa:id}', [siswaController::class, 'updateSiswa'])->name('siswa.update');
-Route::delete('/siswa/delete/{siswa:id}', [siswaController::class, 'destroy'])->name('siswa.delete');
+Route::put('/siswa/edit/{siswa:id}', [SiswaController::class, 'updateSiswa'])->name('siswa.update');
+Route::delete('/siswa/delete/{siswa:id}', [SiswaController::class, 'destroy'])->name('siswa.delete');
+Route::get('/siswa/export/excel',  [SiswaController::class, 'exportExcel']);
