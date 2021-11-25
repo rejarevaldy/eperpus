@@ -18,6 +18,8 @@ class CreateLoansTable extends Migration
             $table->foreignId('user_id');
             $table->foreignId('book_id');
             $table->timestamp('tanggal_tenggat');
+            $table->timestamp('tanggal_dikembalikan')->nullable();
+            $table->enum('status' ,['Dipinjam', 'Dikembalikan', 'Terlambat']);
             $table->timestamps();
         });
     }

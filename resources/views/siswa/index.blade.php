@@ -45,7 +45,7 @@
                             <th>Nama</th>
                             <th style="width: 15%">Nis</th>
                             <th style="width: 10%">Kelas</th>
-                            <th class="sorting_none" style="width: 20%"></th>
+                            <th class="sorting_none" style="width: 18%"></th>
                         </tr>
                     </thead>
                     <tbody>

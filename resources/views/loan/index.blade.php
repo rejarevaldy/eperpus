@@ -1,14 +1,15 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="p-4 mb-4 border rounded shadow-sm bg-light">
+
+    <div class="p-4 mb-4 border rounded shadow-sm bg-light ">
         <div class="row">
             <div class="col-lg-12">
                 <div class="p-2 rounded bg-light">
-                    <h2 class="mb-3 ">Buku</h2>
+                    <h2 class="mb-3 ">Peminjaman</h2>
                     <div class="mb-2 row">
                         <div class="col-sm">
-                            <a href="/buku/tambahkan" class="text-white text-decoration-none">
+                            <a href="/peminjaman/tambahkan" class="text-white text-decoration-none">
                                 <button class="px-4 py-2 btn btn-outline-primary fw-bold "><i class="fas fa-plus "></i>
                                     <div class="d-none d-sm-inline"> New
                                 </button>
@@ -40,26 +41,30 @@
                     <thead>
                         <tr class="text-center fw-bold">
                             <th style="width: 1%">No</th>
-                            <th style="width: 30%">Judul</th>
-                            <th>Penulis</th>
-                            <th>ISBN</th>
-                            <th style="width: 5%">Stok</th>
+                            <th>Buku</th>
+                            <th>Peminjam</th>
+                            <th style="width: 7%">Dipinjam</th>
+                            <th style="width: 7%">Tenggat</th>
+                            <th style="width: 7%">Pengembalian</th>
+                            <th style="width: 10%">Status</th>
                             <th class="sorting_none" style="width: 18%"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($books as $book)
+                        @foreach ($loans as $loan)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
-                                <td>{{ $book->judul }}</td>
-                                <td>{{ $book->penulis }}</td>
-                                <td>{{ $book->isbn }}</td>
-                                <td>{{ $book->stok }}</td>
+                                <td>{{ $loan->book->judul }} | {{ $loan->book->penulis }}</td>
+                                <td>{{ $loan->user->nama }} | {{ $loan->user->kelas }} {{ $loan->user->jurusan }}</td>
+                                <td>{{ $loan->created_at }}</td>
+                                <td>{{ $loan->tanggal_tenggat }}</td>
+                                <td>{{ $loan->pengembalian }}</td>
+                                <td>{{ $loan->status }}</td>
                                 <td class="text-center">
-                                    <a href="/buku/detail/{{ $book->id }}"
+                                    <a href="/peminjaman/detail/{{ $loan->id }}"
                                         class="py-1 text-center text-decoration-none ms-2 me-2">
                                         View </a>
-                                    <a href="/buku/edit/{{ $book->id }}"
+                                    <a href="/peminjaman/edit/{{ $loan->id }}"
                                         class="py-1 text-center text-decoration-none ms-2 me-2">
                                         Edit </a>
                                     <button type="text" data-bs-toggle="modal" data-bs-target="#deleteModal"
@@ -78,11 +83,12 @@
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            <i class="fas fa-exclamation-circle text-warning"></i> Apakah Anda Yakin Akan
-                                            Menghapus {{ $book->judul }}
+                                            <i class="fas fa-exclamation-circle text-warning"></i> Apakah Anda Yakin
+                                            Akan
+                                            Menghapus {{ $loan->judul }}
                                         </div>
                                         <div class="modal-footer">
-                                            <form action="{{ route('book.delete', $book->id) }}" method="POST">
+                                            <form action="" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="button" class="px-3 py-1 btn btn-outline-outline-secondary"

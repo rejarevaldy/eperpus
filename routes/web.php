@@ -2,10 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\LoanController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Controllers\SiswaController;
-use App\Http\Controllers\UserController;
+
+//
+Route::get('')->middleware('auth');
 
 // Auth
 Route::get('/login', [LoginController::class, 'index']);
@@ -14,6 +18,13 @@ Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
 
 // User
 Route::get('/user/{user:nama}', [UserController::class, 'index']);
+
+// Loan
+Route::get('/peminjaman', [LoanController::class, 'index']);
+Route::get('/peminjaman/tambahkan', [LoanController::class, 'addLoan']);
+Route::post('/peminjaman/tambahkan', [LoanController::class, 'storeLoan'])->name('loan.store');
+
+
 
 // Book
 Route::get('/buku', [BookController::class, 'index']);
