@@ -2,6 +2,7 @@
 
 @section('content')
 
+
     <div class="p-4 mb-4 border rounded shadow-sm bg-light ">
         <div class="row">
             <div class="col-lg-12">
@@ -53,13 +54,16 @@
                     <tbody>
                         @foreach ($loans as $loan)
                             <tr>
+
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td>{{ $loan->book->judul }} | {{ $loan->book->penulis }}</td>
                                 <td>{{ $loan->user->nama }} | {{ $loan->user->kelas }} {{ $loan->user->jurusan }}</td>
                                 <td>{{ $loan->created_at }}</td>
                                 <td>{{ $loan->tanggal_tenggat }}</td>
-                                <td>{{ $loan->pengembalian }}</td>
-                                <td>{{ $loan->status }}</td>
+                                <td>{{ $loan->tanggal_dikembalikan }}</td>
+                                <td
+                                    class="{{ $loan->status === 'Dipinjam' ? 'text-secondary' : '' }} {{ $loan->status === 'Dikembalikan' ? 'text-success' : '' }}{{ $loan->status === 'Terlambat' ? 'text-danger' : '' }}">
+                                    {{ $loan->status }}</td>
                                 <td class="text-center">
                                     <a href="/peminjaman/detail/{{ $loan->id }}"
                                         class="py-1 text-center text-decoration-none ms-2 me-2">
@@ -79,18 +83,18 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="deleteModalLabel">Konfirmasi</h5>
-                                            <button type="button" class="btn-outline-close" data-bs-dismiss="modal"
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
                                             <i class="fas fa-exclamation-circle text-warning"></i> Apakah Anda Yakin
                                             Akan
-                                            Menghapus {{ $loan->judul }}
+                                            Menghapus {{ $loan->id }}
                                         </div>
                                         <div class="modal-footer">
-                                            <form action="" method="POST">
+                                            <form action="{{ route('loan.delete', $loan->id) }}" method="POST">
                                                 @csrf
-                                                @method('DELETE')
+                                                @method('delete')
                                                 <button type="button" class="px-3 py-1 btn btn-outline-outline-secondary"
                                                     data-bs-dismiss="modal">No</button>
                                                 <button type="submit" class="px-3 py-1 btn btn-outline-danger">Yes</button>

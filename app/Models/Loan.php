@@ -18,6 +18,8 @@ class Loan extends Model
         'status',
     ];
 
+    protected $dates = ['created_at', 'tanggal_tenggat', 'tanggal_dikembalikan', 'updated_at'];
+
     protected $guarded = [
         'id'
     ];

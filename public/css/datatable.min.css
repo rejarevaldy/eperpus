@@ -66,7 +66,7 @@ table.dataTable thead .sorting_none {
 }
 
 table.dataTable tbody tr {
-    background-color: #fff;
+    background-color: #f8f9fa;
 }
 
 table.dataTable tbody tr.selected {

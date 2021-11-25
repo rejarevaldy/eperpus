@@ -13,12 +13,9 @@ class SiswaController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
-        if (auth()->user()->role !== 'admin') {
-            return redirect('/home/');
-        }
 
         $siswas = User::all();
 
@@ -61,6 +58,9 @@ class SiswaController extends Controller
     public function storeSiswa(Request $request)
     {
         $password = bcrypt($request->password);
+        $image = $request->file('file');
+        $imageName = time() . '.' . $image->extension();
+        $image->move(public_path('images'), $imageName);
 
         $siswa = new User();
         $siswa->nama = $request->nama;
@@ -72,14 +72,9 @@ class SiswaController extends Controller
         $siswa->gender = $request->gender;
         $siswa->agama = $request->agama;
         $siswa->role = 'siswa';
-        if ($request->has('image')) {
-            $image = $request->file('file');
-            $imageName = time() . '.' . $image->extension();
-            $image->move(public_path('images'), $imageName);
-            return $siswa->gambar_user = $imageName;
-        } else {
-            $siswa->gambar_user = 'user.png';
-        }
+
+        $siswa->gambar_user = $imageName;
+
         $siswa->save();
 
         return redirect()->back()->with('status', 'Siswa berhasil ditambahkan');
@@ -109,6 +104,17 @@ class SiswaController extends Controller
     public function updateSiswa(Request $request, $id)
     {
         $siswa = User::find($id);
+
+        if ($request->hasFile('file')) {
+            $image = $request->file('file');
+            $imageName = time() . '.' . $image->extension();
+            $image->move(public_path('images'), $imageName);
+            
+            $siswa->gambar_user = $imageName;
+        } else {
+            $siswa->gambar_user = $siswa->gambar_user;
+        }
+
         $siswa->nama = $request->nama;
         $siswa->username = $request->username;
         $siswa->password = $siswa->password;
@@ -118,14 +124,7 @@ class SiswaController extends Controller
         $siswa->gender = $request->gender;
         $siswa->agama = $request->agama;
         $siswa->role = 'siswa';
-        if ($request->has('image')) {
-            $image = $request->file('file');
-            $imageName = time() . '.' . $image->extension();
-            $image->move(public_path('images'), $imageName);
-            return $siswa->gambar_user = $imageName;
-        } else {
-            $siswa->gambar_user = 'user.png';
-        }
+
         $siswa->save();
         return redirect()->back()->with('status', 'Siswa berhasil diperbarui');
     }

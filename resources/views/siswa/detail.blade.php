@@ -34,7 +34,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="deleteModalLabel">Konfirmasi</h5>
-                                            <button type="button" class="btn-outline-close" data-bs-dismiss="modal"
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
@@ -80,6 +80,13 @@
                     </div>
 
                     <div class="col-lg-5">
+                        <div class="mb-3 form-input">
+                            <label for="" class="mb-1 fw-bold"> ID</label>
+                            <div class="input-group">
+                                <input value="{{ $siswa->id }}" placeholder="id" class="form-control" name="id"
+                                    disabled>
+                            </div>
+                        </div>
                         <div class="mb-3 form-input">
                             <label for="" class="mb-1 fw-bold"> Nama</label>
                             <div class="input-group">

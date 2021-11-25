@@ -5,7 +5,6 @@
     <!-- Panel Start -->
     @if (session('status'))
         <div class="alert alert-success alert-dismissible">
-            <button type="button" class="btn-outline-close" data-bs-dismiss="alert"></button>
             <strong>Success!</strong> {{ session('status') }}
         </div>
     @endif
@@ -33,28 +32,28 @@
                                 </div>
                                 <div class="col-lg-10">
                                     <div class="mb-3 form-input">
-                                        <label for="" class="mb-1 fw-bold"> Judul</label>
+                                        <label for="" class="mb-1 fw-bold"><span class="text-danger">*</span> Judul</label>
                                         <div class="input-group">
-                                            <input value="" placeholder="Judul" class="form-control" name="judul">
+                                            <input value="" placeholder="Judul" class="form-control" name="judul" required>
                                         </div>
                                     </div>
                                     <div class="mb-3 form-input">
-                                        <label for="" class="mb-1 fw-bold"> ISBN</label>
+                                        <label for="" class="mb-1 fw-bold"><span class="text-danger">*</span> ISBN</label>
                                         <div class="input-group">
-                                            <input value="" placeholder="ISBN" class="form-control" name="isbn">
+                                            <input value="" placeholder="ISBN" class="form-control" name="isbn" required>
                                         </div>
                                     </div>
                                     <div class="mb-3 form-input">
-                                        <label for="" class="mb-1 fw-bold"> Penulis</label>
+                                        <label for="" class="mb-1 fw-bold"><span class="text-danger">*</span> Penulis</label>
                                         <div class="input-group">
-                                            <input value="" placeholder="Penulis" class="form-control" name="penulis">
+                                            <input value="" placeholder="Penulis" class="form-control" name="penulis" required>
                                         </div>
                                     </div>
                                     <div class="mb-3 form-input">
-                                        <label for="" class="mb-1 fw-bold"> Stok</label>
+                                        <label for="" class="mb-1 fw-bold"><span class="text-danger">*</span> Stok</label>
                                         <div class="input-group">
                                             <input type='number' value="" placeholder="Stok" class="form-control"
-                                                name="stok">
+                                                name="stok" required>
                                         </div>
                                     </div>
                                     <div class="mb-3 input-group">

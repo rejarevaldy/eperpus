@@ -8,10 +8,8 @@ use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 
-//
-Route::get('')->middleware('auth');
-
 // Auth
+Route::get('/', [LoginController::class, 'index']);
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'store'])->name('login');
 Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
@@ -23,7 +21,10 @@ Route::get('/user/{user:nama}', [UserController::class, 'index']);
 Route::get('/peminjaman', [LoanController::class, 'index']);
 Route::get('/peminjaman/tambahkan', [LoanController::class, 'addLoan']);
 Route::post('/peminjaman/tambahkan', [LoanController::class, 'storeLoan'])->name('loan.store');
-
+Route::get('/peminjaman/detail/{loan:id}', [loanController::class, 'detailLoan']);
+Route::get('/peminjaman/edit/{loan:id}', [LoanController::class, 'editLoan']);
+Route::put('/peminjaman/edit/{loan:id}', [LoanController::class, 'updateLoan'])->name('loan.update');
+Route::delete('/peminjaman/delete/{loan:id}', [LoanController::class, 'destroy'])->name('loan.delete');
 
 
 // Book

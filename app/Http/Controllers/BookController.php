@@ -74,26 +74,29 @@ class BookController extends Controller
     public function updateBook(Request $request, $id)
     {
         $book = Book::find($id);
+
+        if ($request->hasFile('file')) {
+            $image = $request->file('file');
+            $imageName = time() . '.' . $image->extension();
+            $image->move(public_path('images'), $imageName);
+             $book->gambar_buku = $imageName;
+        } else {
+            $book->gambar_buku = $book->gambar_buku;
+        }
+
         $book->judul = $request->judul;
         $book->isbn = $request->isbn;
         $book->penulis = $request->penulis;
         $book->stok = $request->stok;
-        if ($request->has('image')) {
-            $image = $request->file('file');
-            $imageName = time() . '.' . $image->extension();
-            $image->move(public_path('images'), $imageName);
-            return $book->gambar_buku = $imageName;
-        } else {
-            $book->gambar_buku = $book->gambar_buku;
-        }
-        $book->update();
+           
+        $book->save();
         return redirect()->back()->with('status', 'Buku berhasil diperbarui');
     }
 
     public function destroy($id)
     {
-        $Book = Book::find($id);
-        $Book->delete();
+        $book = Book::find($id);
+        $book->delete();
         return redirect('/buku/');
     }
 }

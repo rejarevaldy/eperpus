@@ -47,7 +47,7 @@
                             <th class="sorting_none" style="width: 18%"></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="bg-light">
                         @foreach ($books as $book)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
@@ -74,7 +74,7 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="deleteModalLabel">Konfirmasi</h5>
-                                            <button type="button" class="btn-outline-close" data-bs-dismiss="modal"
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">

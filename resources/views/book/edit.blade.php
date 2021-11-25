@@ -5,7 +5,7 @@
     <!-- Panel Start -->
     @if (session('status'))
         <div class="alert alert-success alert-dismissible">
-            <button type="button" class="btn-outline-close" data-bs-dismiss="alert"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             <strong>Success!</strong> {{ session('status') }}
         </div>
     @endif
@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-lg-12 ">
                 <div class="p-4 mb-4 bg-light">
-                    <h2 class="mb-2">Tambahkan Buku</h2>
+                    <h2 class="mb-2">Edit Buku | {{ $book->judul }} - {{ $book->penulis }}</h2>
                 </div>
                 <!-- Panel End -->
                 <!-- Form Start -->
@@ -67,18 +67,14 @@
                                         <label for="" class="mb-1 fw-bold"> Image
                                         </label>
                                         <div class="input-group">
-                                            <input value="{{ asset('images/') }}/{{ $book->gambar_buku }}" type="file"
+                                            <input value="{{ $book->gambar_buku }}" type="file"
                                                 class="form-control" name="file" onchange="preview(this)">
                                         </div>
                                     </div>
 
                                     <button type="submit" class="px-4 py-2 mt-3 btn btn-outline-primary fw-bold"><i
-                                            class="fas fa-plus"></i>
-                                        <div class="d-none d-sm-inline"> Edit</div>
-                                    </button>
-                                    <button type="reset" class="px-4 py-2 mt-3 btn btn-outline-danger fw-bold" value="reset"><i
-                                            class="fas fa-undo"></i>
-                                        <div class="d-none d-sm-inline"> Reset</div>
+                                            class="fas fa-save"></i>
+                                        <div class="d-none d-sm-inline"> Save</div>
                                     </button>
                                     <button type="button" class="px-4 py-2 mt-3 btn btn-outline-secondary fw-bold"><i
                                             class="fas fa-caret-square-left"></i>
