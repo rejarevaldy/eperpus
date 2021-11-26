@@ -16,6 +16,8 @@
 
             <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light {{ $title === 'Buku' ? 'active text-primary' : '' }}"
                 href="/buku/"> <i class='fa fa-book '></i> Buku</a>
+                <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light {{ $title === 'EBuku' ? 'active text-primary' : '' }}"
+                href="/ebuku/"> <i class='fa fa-book '></i> EBuku</a>
             @if (auth()->user()->role === 'siswa')
                 <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light {{ $title === 'PeminjamanUser' ? 'active text-primary' : '' }}"
                     href="{{ route('loan.user', auth()->user()->id) }}"><i class='fa fa-user-graduate'></i> Peminjaman

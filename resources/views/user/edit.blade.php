@@ -55,7 +55,7 @@
                             <input value="{{ $user->nis }}" placeholder="NIS" class="form-control" name="nis">
                         </div>
                     </div>
-                    f8f9fa
+                    
 
                     <div class="mb-3 input-group">
                         <label for="" class="mb-1 fw-bold"> Image

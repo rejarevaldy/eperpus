@@ -1,10 +1,12 @@
 <?php
 
-use App\Http\Controllers\AuditController;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\LoanController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AuditController;
+use App\Http\Controllers\EbookController;
 use App\Http\Controllers\SiswaController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -46,6 +48,15 @@ Route::get('/buku/edit/{book:id}', [BookController::class, 'editBook'])->name('b
 Route::put('/buku/edit/{book:id}', [BookController::class, 'updateBook'])->name('book.update');
 Route::delete('/buku/delete/{book:id}', [BookController::class, 'destroy'])->name('book.delete');
 Route::get('/buku/export/excel',  [BookController::class, 'exportExcel'])->name('book.export');
+
+// ebook
+Route::get('/ebuku', [EbookController::class, 'index'])->name('ebook');
+Route::get('/ebuku/detail/{book:id}', [EbookController::class, 'detailBook'])->name('ebook.detail');
+Route::get('/ebuku/tambahkan', [EbookController::class, 'addBook'])->name('ebook.add');
+Route::post('/ebuku/tambahkan', [EbookController::class, 'storeBook'])->name('ebook.store');
+Route::get('/ebuku/edit/{book:id}', [EbookController::class, 'editBook'])->name('ebook.edit');
+Route::put('/ebuku/edit/{book:id}', [EbookController::class, 'updateBook'])->name('ebook.update');
+Route::delete('/ebuku/delete/{book:id}', [EbookController::class, 'destroy'])->name('ebook.delete');
 
 // Siswa/user
 Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa');
