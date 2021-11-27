@@ -15,6 +15,18 @@
                                         <div class="d-none d-sm-inline"> New
                                     </button>
                                 </a>
+                                <a href="{{ route('ebook.export') }}" class=" text-decoration-none">
+                                    <button class="px-4 py-2 btn btn-outline-success fw-bold "><i
+                                            class="fas fa-file-excel"></i>
+                                        <div class="d-none d-sm-inline">Export to Excel
+                                    </button>
+                                </a>
+                                <a href="{{ route('audit') }}" class="text-white text-decoration-none">
+                                    <button class="px-4 py-2 btn btn-outline-secondary fw-bold "><i
+                                            class="fas fa-history"></i>
+                                        <div class="d-none d-sm-inline">Log Audit
+                                    </button>
+                                </a>
                             @endif
 
                         </div>
@@ -47,7 +59,7 @@
                                 <td>{{ $ebook->penulis }}</td>
                                 <td>{{ $ebook->isbn }}</td>
                                 <td class="text-center">
-                                    <a href="{{ route('ebook.detail', $ebook->id) }}" 
+                                    <a href="{{ route('ebook.detail', $ebook->id) }}"
                                         class="py-1 text-center text-decoration-none ms-2 me-2">
                                         View </a>
                                     @if (auth()->user()->role === 'admin')

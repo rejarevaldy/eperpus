@@ -15,8 +15,10 @@
                                     <h1 class=" card-text" style="font-size: 3.4rem">{{ $user }} </h1>
                                 </div>
                                 <div class="card-header d-flex justify-content-between">
-                                    <a href="{{ route('siswa') }}" class="text-decoration-none text-secondary">Siswa Details</a>
-                                    <a href="{{ route('siswa') }}"><i class="fa fa-arrow-circle-right text-secondary"></i></a>
+                                    <a href="{{ route('siswa') }}" class="text-decoration-none text-secondary">Siswa
+                                        Details</a>
+                                    <a href="{{ route('siswa') }}"><i
+                                            class="fa fa-arrow-circle-right text-secondary"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -28,8 +30,10 @@
                                     <h1 class=" card-text" style="font-size: 3.4rem">{{ $book }} </h1>
                                 </div>
                                 <div class="card-header d-flex justify-content-between">
-                                    <a href="{{ route('book') }}" class="text-decoration-none text-secondary">Buku Details</a>
-                                    <a href="{{ route('book') }}"><i class="fa fa-arrow-circle-right text-secondary"></i></a>
+                                    <a href="{{ route('book') }}" class="text-decoration-none text-secondary">Buku
+                                        Details</a>
+                                    <a href="{{ route('book') }}"><i
+                                            class="fa fa-arrow-circle-right text-secondary"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -41,8 +45,10 @@
                                     <h1 class=" card-text" style="font-size: 3.4rem">{{ $dipinjam }} </h1>
                                 </div>
                                 <div class="card-header d-flex justify-content-between">
-                                    <a href="{{ route('loan') }}" class="text-decoration-none text-secondary">Dipinjam Details</a>
-                                    <a href="{{ route('loan') }}"><i class="fa fa-arrow-circle-right text-secondary"></i></a>
+                                    <a href="{{ route('loan') }}" class="text-decoration-none text-secondary">Dipinjam
+                                        Details</a>
+                                    <a href="{{ route('loan') }}"><i
+                                            class="fa fa-arrow-circle-right text-secondary"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -54,8 +60,10 @@
                                     <h1 class=" card-text" style="font-size: 3.4rem">{{ $dikembalikan }} </h1>
                                 </div>
                                 <div class="card-header d-flex justify-content-between">
-                                    <a href="{{ route('loan') }}" class="text-decoration-none text-secondary">Dikembalikan Details</a>
-                                    <a href="{{ route('loan') }}"><i class="fa fa-arrow-circle-right text-secondary"></i></a>
+                                    <a href="{{ route('loan') }}"
+                                        class="text-decoration-none text-secondary">Dikembalikan Details</a>
+                                    <a href="{{ route('loan') }}"><i
+                                            class="fa fa-arrow-circle-right text-secondary"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -70,7 +78,15 @@
             <div class="col-lg-12">
                 <div class="p-2 rounded bg-light">
                     <!-- Tables Start-->
-                    <p>Peminjaman Terbaru</p>
+                    <div class="d-flex justify-content-between">
+                        <p>Peminjaman Terbaru</p>
+
+                        <div class="div">
+                            <a href="{{ route('loan') }}" class="text-decoration-none ">View More</a>
+                            <a href="{{ route('loan') }}"><i class="fa fa-chevron-right" style="font-size: 0.7rem"></i></a>
+                        </div>
+
+                    </div>
                     <table class="table table-bordered " style="width:100%">
                         <thead class="" style="background-color: rgb(237, 236, 236)">
                             <tr class="text-center fw-bold">
@@ -108,6 +124,11 @@
                                             View </a>
                             @endforeach
                         </tbody>
+                        <tfoot style="background-color: rgb(237, 236, 236)">
+                            <th colspan="8" class=" text-primary">
+
+                            </th>
+                        </tfoot>
                     </table>
                     <!-- Tables End -->
 

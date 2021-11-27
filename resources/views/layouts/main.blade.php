@@ -29,7 +29,7 @@
         });
     </script>
 
-    <title>e-Perpus | {{ $title }}</title>
+    <title>E-Perpus | {{ $title }}</title>
 
 </head>
 

@@ -15,7 +15,6 @@
                                     <div class="d-none d-sm-inline">Export to Excel
                                 </button>
                             </a>
-
                         </div>
                     </div>
                 </div>
@@ -26,7 +25,7 @@
 
     <div class="mt-4 row ">
         <div class="col-lg-12 ">
-            <div class="p-4 border rounded shadow-sm bg-light">
+            <div class="p-4 border rounded shadow-sm bg-light mb-4">
 
                 <!-- Tables Start-->
                 <table id="datatable" class="table table-bordered " style="width:100%">

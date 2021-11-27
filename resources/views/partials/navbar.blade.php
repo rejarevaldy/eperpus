@@ -1,9 +1,9 @@
 <div class="d-flex" id="wrapper">
     <!-- Sidebar Start-->
     <div class="bg-white border-end" id="sidebar-wrapper">
-        <div class="sidebar-heading fw-bold fs-4 border-bottom"> <img src="{{ asset('images/logosmk.png') }}" alt=""
-                class="img img-responsive" width="30" height="30">
-            e-Perpus</div>
+        <div class="sidebar-heading fw-bold fs-4 border-bottom" style="padding-bottom: 14px"> <img src="{{ asset('images/logosmk.png') }}" alt=""
+                class="img img-responsive" width="35" height="35">
+            E-Perpus</div>
         <div class="list-group list-group-flush">
             @if (auth()->user()->role === 'admin')
                 <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light  {{ $title === 'Dashboard' ? 'active text-primary' : '' }}"
@@ -38,7 +38,7 @@
     <div id="page-content-wrapper">
         <!-- Nav Start -->
         </nav>
-        <header class="py-3 mb-3 bg-light border-bottom">
+        <header class="py-3 mb-3 bg-white border-bottom">
             <div class="container-fluid align-items-center" style="grid-template-columns: 1fr 2fr;">
                 <div class="d-flex align-items-center justify-content-between">
                     <button class="btn" id="sidebarToggle"><i class="fas fa-bars"></i></button>

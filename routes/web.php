@@ -60,6 +60,7 @@ Route::post('/ebuku/tambahkan', [EbookController::class, 'storeBook'])->name('eb
 Route::get('/ebuku/edit/{ebook:id}', [EbookController::class, 'editBook'])->name('ebook.edit');
 Route::put('/ebuku/edit/{ebook:id}', [EbookController::class, 'updateBook'])->name('ebook.update');
 Route::delete('/ebuku/delete/{ebook:id}', [EbookController::class, 'destroy'])->name('ebook.delete');
+Route::get('/ebuku/export/excel',  [EbookController::class, 'exportExcel'])->name('ebook.export');
 
 Route::get('/ebuku/user', [EbookController::class, 'userEbuku'])->name('ebook.user');
 

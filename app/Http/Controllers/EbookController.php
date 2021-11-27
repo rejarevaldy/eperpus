@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ebook;
+use App\Exports\EbookExport;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
@@ -145,4 +147,9 @@ class EbookController extends Controller
     }
 
 
+    public function exportExcel()
+    {
+        $file_name = 'Ebook_report_' . date('Y-m-d_H-i-s') . '.xlsx';
+        return Excel::download(new EbookExport, $file_name);
+    }
 }
