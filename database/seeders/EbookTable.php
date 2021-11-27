@@ -6,7 +6,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class BookTable extends Seeder
+class EbookTable extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,12 +15,11 @@ class BookTable extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create('App\Book');
-        DB::table('books')->insert([
+        $faker = Faker::create('App\Ebook');
+        DB::table('ebooks')->insert([
         	'judul' => $faker->shuffle('judul-buku'),
         	'isbn' => $faker->regexify('[A-Z]{5}[0-4]{4}'),
         	'penulis' => $faker->name(),
-            'stok' => $faker->numberBetween(0, 100),
         	'created_at' => \Carbon\Carbon::now(),
         	'Updated_at' => \Carbon\Carbon::now(),
         ]);

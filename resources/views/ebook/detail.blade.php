@@ -7,11 +7,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="p-2 rounded bg-light">
-                    <h2 class="mb-3 ">Detail Buku</h2>
+                    <h2 class="mb-3 ">Detail E-Buku</h2>
                     <div class="mb-2 row">
                         <div class="col-sm">
                             @if (auth()->user()->role === 'admin')
-                                <a href="{{ route('book.edit', $book->id) }}" class="text-white text-decoration-none">
+                                <a href="{{ route('ebook.edit', $ebook->id) }}" class="text-white text-decoration-none">
                                     <button class="px-4 py-2 btn btn-outline-primary fw-bold "><i class="fas fa-edit "></i>
                                         <div class="d-none d-sm-inline"> Edit</div>
                                     </button>
@@ -23,6 +23,11 @@
                                     <div class="d-none d-sm-inline"> Delete</div>
                                 </button>
                             @endif
+                            <a href="{{ asset('pdf') }}/{{ $ebook->file_pdf }}" class="text-white text-decoration-none" target="_blank">
+                                <button class="px-4 py-2 btn btn-outline-primary fw-bold "><i class="fas fa-book-reader "></i>
+                                    <div class="d-none d-sm-inline"> Read</div>
+                                </button>
+                            </a>
                             <button type="button" class="px-4 py-2 btn btn-outline-secondary fw-bold"><i
                                     class="fas fa-caret-square-left"></i>
                                 <a class="text-secondary text-secondary-hover d-none d-sm-inline text-decoration-none"
@@ -39,10 +44,10 @@
                                         </div>
                                         <div class="modal-body">
                                             <i class="fas fa-exclamation-circle text-warning"></i> Apakah Anda Yakin Akan
-                                            Menghapus {{ $book->judul }}
+                                            Menghapus {{ $ebook->judul }}
                                         </div>
                                         <div class="modal-footer">
-                                            <form action="{{ route('book.delete', $book->id) }}" method="POST">
+                                            <form action="{{ route('ebook.delete', $ebook->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="button" class="px-3 py-1 btn btn-outline-outline-secondary"
@@ -69,7 +74,7 @@
                         <div class="mb-3 form-input">
                             <label for="" class="mb-1 fw-bold"> Image</label>
                             <div class="input-group">
-                                <img src=" {{ asset('images/') }}/{{ $book->gambar_buku }}" class="img-thumbnail"
+                                <img src=" {{ asset('images/') }}/{{ $ebook->gambar_pdf }}" class="img-thumbnail"
                                     alt="...">
                             </div>
                         </div>
@@ -78,34 +83,28 @@
                         <div class="mb-3 form-input">
                             <label for="" class="mb-1 fw-bold"> ID</label>
                             <div class="input-group">
-                                <input placeholder="{{ $book->id }}" class="form-control" disabled>
+                                <input placeholder="{{ $ebook->id }}" class="form-control" disabled>
                             </div>
                         </div>
                         <div class="mb-3 form-input">
                             <label for="" class="mb-1 fw-bold"> ISBN</label>
                             <div class="input-group">
-                                <input placeholder="{{ $book->isbn }}" class="form-control" disabled>
+                                <input placeholder="{{ $ebook->isbn }}" class="form-control" disabled>
                             </div>
                         </div>
                         <div class="mb-3 form-input">
                             <label for="" class="mb-1 fw-bold"> Judul</label>
                             <div class="input-group">
-                                <input placeholder="{{ $book->judul }}" class="form-control" disabled>
+                                <input placeholder="{{ $ebook->judul }}" class="form-control" disabled>
                             </div>
                         </div>
                         <div class="mb-3 form-input">
                             <label for="" class="mb-1 fw-bold"> Penulis</label>
                             <div class="input-group">
-                                <input placeholder="{{ $book->penulis }}" class="form-control" disabled>
+                                <input placeholder="{{ $ebook->penulis }}" class="form-control" disabled>
                             </div>
                         </div>
 
-                        <div class="mb-3 form-input">
-                            <label for="" class="mb-1 fw-bold"> Stok</label>
-                            <div class="input-group">
-                                <input placeholder="{{ $book->stok }}" class="form-control" disabled>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </form>

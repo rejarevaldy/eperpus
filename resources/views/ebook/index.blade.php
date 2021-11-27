@@ -47,7 +47,7 @@
                                 <td>{{ $ebook->penulis }}</td>
                                 <td>{{ $ebook->isbn }}</td>
                                 <td class="text-center">
-                                    <a href="{{ asset('pdf/') }}/{{ $ebook->file_pdf }}" target="_blank"
+                                    <a href="{{ route('ebook.detail', $ebook->id) }}" 
                                         class="py-1 text-center text-decoration-none ms-2 me-2">
                                         View </a>
                                     @if (auth()->user()->role === 'admin')

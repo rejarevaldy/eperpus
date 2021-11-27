@@ -21,6 +21,15 @@
                         <form action="{{ route('ebook.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
+                                <div class="col-lg-2">
+                                    <div class="mb-3 form-input">
+                                        <label for="" class="mb-1 fw-bold"> Image
+                                        </label>
+                                        <div class="input-group">
+                                            <img src="" id="previewImg" class="img-thumbnail" alt="...">
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-lg-10">
                                     <div class="mb-3 form-input">
                                         <label for="" class="mb-1 fw-bold"><span class="text-danger">*</span> Judul</label>
@@ -40,11 +49,20 @@
                                             <input value="" placeholder="Penulis" class="form-control" name="penulis" required>
                                         </div>
                                     </div>
+
                                     <div class="mb-3 input-group">
-                                        <label for="" class="mb-1 fw-bold"> File
+                                        <label for="" class="mb-1 fw-bold"><span class="text-danger">*</span> File PDF
                                         </label>
                                         <div class="input-group">
-                                            <input type="file" class="form-control" name="file" >
+                                            <input type="file" class="form-control" name="filepdf"  accept = "application/pdf" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3 input-group">
+                                        <label for="" class="mb-1 fw-bold"> Image
+                                        </label>
+                                        <div class="input-group">
+                                            <input type="file" class="form-control" name="file" onchange="preview(this)" accept="image/png, image/jpeg, image/jpg">
                                         </div>
                                     </div>
 
@@ -71,4 +89,18 @@
         </div>
     </div>
     <!-- Content End -->
+
+    <script>
+        function preview(input) {
+            var file = $("input[type=file]").get(0).files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function() {
+                    $('#previewImg').attr('src', reader.result)
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+
 @endsection

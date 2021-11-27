@@ -2,7 +2,10 @@
 
 namespace Database\Seeders;
 
+use Database\Seeders\BookTable;
+use Database\Seeders\UserTable;
 use Illuminate\Database\Seeder;
+use Database\Seeders\EbookTable;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +16,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call([
+            BookTable::class,
+            UserTable::class,
+            EbookTable::class
+        ]);
     }
 }

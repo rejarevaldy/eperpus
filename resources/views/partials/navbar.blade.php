@@ -1,25 +1,31 @@
 <div class="d-flex" id="wrapper">
     <!-- Sidebar Start-->
     <div class="bg-white border-end" id="sidebar-wrapper">
-        <div class="sidebar-heading fw-bold fs-4 border-bottom"> <img src="{{ asset('images/logosmk.png') }}"
-                alt="" class="img img-responsive" width="30" height="30">
+        <div class="sidebar-heading fw-bold fs-4 border-bottom"> <img src="{{ asset('images/logosmk.png') }}" alt=""
+                class="img img-responsive" width="30" height="30">
             e-Perpus</div>
         <div class="list-group list-group-flush">
             @if (auth()->user()->role === 'admin')
+                <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light  {{ $title === 'Dashboard' ? 'active text-primary' : '' }}"
+                    href="/dashboard/"><i class='fa fa-tachometer-alt'></i> Dashboard</a>
                 <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light  {{ $title === 'Audit' ? 'active text-primary' : '' }}"
                     href="/audit/"><i class='fa fa-history'></i> Log Audit</a>
-                <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light {{ $title === 'Peminjaman' ? 'active text-primary' : '' }}"
-                    href="/peminjaman/"><i class='fa fa-address-book'></i> Peminjaman</a>
                 <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light {{ $title === 'Siswa' ? 'active text-primary' : '' }}"
                     href="/siswa/"><i class='fa fa-user-graduate'></i> Siswa</a>
+                <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light {{ $title === 'Peminjaman' ? 'active text-primary' : '' }}"
+                    href="/peminjaman/"><i class='fa fa-address-book'></i> Peminjaman</a>
+                <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light {{ $title === 'E-Buku' ? 'active text-primary' : '' }}"
+                    href="/ebuku/"> <i class='fa fa-atlas '></i> E-Buku</a>
             @endif
 
             <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light {{ $title === 'Buku' ? 'active text-primary' : '' }}"
                 href="/buku/"> <i class='fa fa-book '></i> Buku</a>
-                <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light {{ $title === 'EBuku' ? 'active text-primary' : '' }}"
-                href="/ebuku/"> <i class='fa fa-book '></i> EBuku</a>
+
+
             @if (auth()->user()->role === 'siswa')
-                <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light {{ $title === 'PeminjamanUser' ? 'active text-primary' : '' }}"
+                <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light {{ $title === 'E-Buku user' ? 'active text-primary' : '' }}"
+                    href="/ebuku/user"> <i class='fa fa-atlas '></i> E-Buku</a>
+                <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light {{ $title === 'Peminjaman' ? 'active text-primary' : '' }}"
                     href="{{ route('loan.user', auth()->user()->id) }}"><i class='fa fa-user-graduate'></i> Peminjaman
                     {{ auth()->user()->nama }}</a>
             @endif

@@ -76,7 +76,7 @@
                                             <a class="text-decoration-none ms-2" href="#"
                                                 onClick="autoFillAdmin(); return true;"> Admin </a>
                                             <a class="text-decoration-none ms-2" href="#"
-                                                onClick="autoFillUser(); return true;"> User </a>
+                                                onClick="autoFillUser(); return true;"> Siswa </a>
                                         </p>
                                     </div>
 
@@ -179,8 +179,8 @@
     }
 
     function autoFillUser() {
-        document.getElementById('floatingInput').value = "user";
-        document.getElementById('floatingPassword').value = "user";
+        document.getElementById('floatingInput').value = "siswa";
+        document.getElementById('floatingPassword').value = "siswa";
     }
 </script>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ebook;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
 class EbookController extends Controller
@@ -16,20 +17,31 @@ class EbookController extends Controller
     public function index()
     {
         return view('ebook.index', [
-            "title" => "EBuku",
+            "title" => "E-Buku",
             "sub" => null,
             "item" => null,
             "ebooks" => Ebook::all()
         ]);
     }
 
+    public function userEbuku()
+    {
+
+        return view('ebook.user.index', [
+            "title" => "E-Buku user",
+            "sub" => null,
+            "item" => null,
+            "ebooks" => Ebook::paginate(12)
+        ]);
+    }
+
     public function detailBook(Ebook $ebook)
     {
-        return view('book.detail', [
-            "title" => "EBuku",
+        return view('ebook.detail', [
+            "title" => "E-Buku",
             "sub" => "Detail",
             "item" => $ebook->judul,
-            "ebooks" => $ebook
+            "ebook" => $ebook
         ]);
     }
 
@@ -40,7 +52,7 @@ class EbookController extends Controller
         }
 
         return view('ebook.new', [
-            "title" => "EBuku",
+            "title" => "E-Buku",
             "sub" => "Tambahkan",
             "item" => null,
         ]);
@@ -54,13 +66,18 @@ class EbookController extends Controller
 
         $file = $request->file('file');
         $fileName = time() . '.' . $file->extension();
-        $file->move(public_path('pdf'), $fileName);
+        $file->move(public_path('images'), $fileName);
+
+        $filepdf = $request->file('filepdf');
+        $fileNamePdf = time() . '.' . $filepdf->extension();
+        $filepdf->move(public_path('pdf'), $fileNamePdf);
 
         $book = new Ebook();
         $book->judul = $request->judul;
         $book->isbn = $request->isbn;
         $book->penulis = $request->penulis;
-        $book->file_pdf = $fileName;
+        $book->gambar_pdf = $fileName;
+        $book->file_pdf = $fileNamePdf;
         $book->save();
 
         return redirect()->back()->with('status', 'EBuku berhasil ditambahkan');
@@ -90,21 +107,29 @@ class EbookController extends Controller
 
         $book = Ebook::find($id);
 
+        if ($request->hasFile('filepdf')) {
+            $file = $request->file('filepdf');
+            $fileNamePdf = time() . '.' . $file->extension();
+            $file->move(public_path('pdf'), $fileNamePdf);
+            $book->file_pdf = $fileNamePdf;
+        } else {
+            $book->file_pdf = $book->file_pdf;
+        }
+
         if ($request->hasFile('file')) {
             $file = $request->file('file');
             $fileName = time() . '.' . $file->extension();
             $file->move(public_path('pdf'), $fileName);
-            $book->file_pdf = $fileName;
+            $book->gambar_pdf = $fileName;
         } else {
-            $book->file_pdf = $book->file_pdf;
+            $book->gambar_pdf = $book->gambar_pdf;
         }
 
         $book->judul = $request->judul;
         $book->isbn = $request->isbn;
         $book->penulis = $request->penulis;
-        $book->file_pdf = $fileName;
 
-        $book->save();
+        $book->update();
         return redirect()->back()->with('status', 'Buku berhasil diperbarui');
     }
 
@@ -116,7 +141,7 @@ class EbookController extends Controller
         
         $book = Ebook::find($id);
         $book->delete();
-        return redirect('/buku/');
+        return redirect('/ebuku/');
     }
 
 

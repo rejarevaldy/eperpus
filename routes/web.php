@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuditController;
 use App\Http\Controllers\EbookController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 
@@ -16,6 +17,9 @@ Route::get('/', [LoginController::class, 'index']);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store'])->name('login.store');
 Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
+
+// Dashboard
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
 // User
 Route::get('/user/{user:nama}', [UserController::class, 'index'])->name('user');
@@ -38,7 +42,6 @@ Route::get('/peminjaman/export/excel',  [LoanController::class, 'exportExcel'])-
 
 Route::get('/peminjaman/{user:id}', [LoanController::class, 'loanUser'])->name('loan.user');
 
-
 // Book
 Route::get('/buku', [BookController::class, 'index'])->name('book');
 Route::get('/buku/detail/{book:id}', [BookController::class, 'detailBook'])->name('book.detail');
@@ -51,12 +54,15 @@ Route::get('/buku/export/excel',  [BookController::class, 'exportExcel'])->name(
 
 // ebook
 Route::get('/ebuku', [EbookController::class, 'index'])->name('ebook');
-Route::get('/ebuku/detail/{book:id}', [EbookController::class, 'detailBook'])->name('ebook.detail');
+Route::get('/ebuku/detail/{ebook:id}', [EbookController::class, 'detailBook'])->name('ebook.detail');
 Route::get('/ebuku/tambahkan', [EbookController::class, 'addBook'])->name('ebook.add');
 Route::post('/ebuku/tambahkan', [EbookController::class, 'storeBook'])->name('ebook.store');
-Route::get('/ebuku/edit/{book:id}', [EbookController::class, 'editBook'])->name('ebook.edit');
-Route::put('/ebuku/edit/{book:id}', [EbookController::class, 'updateBook'])->name('ebook.update');
-Route::delete('/ebuku/delete/{book:id}', [EbookController::class, 'destroy'])->name('ebook.delete');
+Route::get('/ebuku/edit/{ebook:id}', [EbookController::class, 'editBook'])->name('ebook.edit');
+Route::put('/ebuku/edit/{ebook:id}', [EbookController::class, 'updateBook'])->name('ebook.update');
+Route::delete('/ebuku/delete/{ebook:id}', [EbookController::class, 'destroy'])->name('ebook.delete');
+
+Route::get('/ebuku/user', [EbookController::class, 'userEbuku'])->name('ebook.user');
+
 
 // Siswa/user
 Route::get('/siswa', [SiswaController::class, 'index'])->name('siswa');

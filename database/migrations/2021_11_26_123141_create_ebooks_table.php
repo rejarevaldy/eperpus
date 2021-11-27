@@ -18,7 +18,8 @@ class CreateEbooksTable extends Migration
             $table->string('judul');
             $table->string('isbn');
             $table->string('penulis')->nullable();
-            $table->string('file_pdf');
+            $table->string('file_pdf')->default('example.pdf');
+            $table->string('gambar_pdf')->default('gambar_pdf.png');
             $table->timestamps();
         });
     }

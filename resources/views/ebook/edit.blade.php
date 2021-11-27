@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="p-2 rounded bg-light">
-                    <h2>Edit Buku | {{ $ebook->judul }} - {{ $ebook->penulis }}</h2>
+                    <h2>Edit E-Buku | {{ $ebook->judul }} - {{ $ebook->penulis }}</h2>
                 </div>
             </div>
         </div>
@@ -28,6 +28,16 @@
                 @csrf
                 @method('PUT')
                 <div class="row">
+                    <div class="col-lg-2">
+                        <div class="mb-3 form-input">
+                            <label for="" class="mb-1 fw-bold"> Image
+                            </label>
+                            <div class="input-group">
+                                <img src="{{ asset('images/') }}/{{ $ebook->gambar_pdf }}" id="previewImg"
+                                    class="img-thumbnail" alt="...">
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-lg-10">
                         <div class="mb-3 form-input">
                             <label for="" class="mb-1 fw-bold"> Judul</label>
@@ -49,7 +59,15 @@
                             </div>
                         </div>
                         <div class="mb-3 input-group">
-                            <label for="" class="mb-1 fw-bold"> File
+                            <label for="" class="mb-1 fw-bold"> File PDF
+                            </label>
+                            <div class="input-group">
+                                <input value="{{ $ebook->file_pdf }}" type="file" class="form-control" name="filepdf"
+                                    onchange="preview(this)">
+                            </div>
+                        </div>
+                        <div class="mb-3 input-group">
+                            <label for="" class="mb-1 fw-bold"> Image
                             </label>
                             <div class="input-group">
                                 <input value="{{ $ebook->gambar_buku }}" type="file" class="form-control" name="file"
