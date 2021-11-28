@@ -40,7 +40,8 @@ Route::put('/peminjaman/edit/{loan:id}', [LoanController::class, 'updateLoan'])-
 Route::delete('/peminjaman/delete/{loan:id}', [LoanController::class, 'destroy'])->name('loan.delete');
 Route::get('/peminjaman/export/excel',  [LoanController::class, 'exportExcel'])->name('loan.export');
 
-Route::get('/peminjaman/{user:id}', [LoanController::class, 'loanUser'])->name('loan.user');
+Route::get('/peminjaman/{user:nama}', [LoanController::class, 'loanUser'])->name('loan.user');
+
 
 // Book
 Route::get('/buku', [BookController::class, 'index'])->name('book');

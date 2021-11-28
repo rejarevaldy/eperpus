@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
+            $table->id()->references('id')->on('loans')->onDelete('cascade');
             $table->string('username')->unique();
             $table->string('nama');
             $table->string('nis');

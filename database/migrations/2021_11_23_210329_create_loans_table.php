@@ -15,8 +15,8 @@ class CreateLoansTable extends Migration
     {
         Schema::create('loans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->foreignId('book_id');
+            $table->foreignId('user_id')->references('id')->on('table_name')->onDelete('cascade');
+            $table->foreignId('book_id')->references('id')->on('books')->onDelete('cascade');
             $table->timestamp('tanggal_tenggat');
             $table->timestamp('tanggal_dikembalikan')->nullable();
             $table->enum('status' ,['Dipinjam', 'Dikembalikan', 'Terlambat']);

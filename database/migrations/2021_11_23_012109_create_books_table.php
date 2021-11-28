@@ -14,7 +14,7 @@ class CreateBooksTable extends Migration
     public function up()
     {
         Schema::create('books', function (Blueprint $table) {
-            $table->id();
+            $table->id()->references('id')->on('loans')->onDelete('cascade');
             $table->string('judul');
             $table->string('isbn');
             $table->string('penulis')->nullable();

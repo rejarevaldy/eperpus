@@ -20,7 +20,7 @@ class Credential extends Seeder
   {
     $faker = Faker::create('App\User');
     DB::table('users')->insert([
-      'nama' => 'Reja Revaldy F. {Admin}',
+      'nama' => 'Admin',
       'username' => 'admin',
       'password' => '$2y$10$9IqyR8x9oGcJvaCdZFZk0.RwgGcLwEX/cGPx6wxnyN0iXKvtvn0Ei',
       'nis' => $faker->regexify('[0-9]{8}'),
@@ -34,7 +34,7 @@ class Credential extends Seeder
     ]);
 
     DB::table('users')->insert([
-      'nama' => 'Reja Revaldy F. {Siswa}',
+      'nama' => 'Siswa',
       'username' => 'siswa',
       'password' => '$2y$10$kbfL7Ucu0JTv19GdtZ64DexNvrkhdEXfdr48Dr5jP.KEww1P3Ym92',
       'nis' => $faker->regexify('[0-9]{8}'),
