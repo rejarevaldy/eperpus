@@ -13,13 +13,6 @@ class Loan extends Model implements Auditable
     use HasFactory;
     use \OwenIt\Auditing\Auditable;
 
-    protected $fillable = [
-        'tanggal_tenggat',
-        'user_id',
-        'book_id',
-        'status',
-    ];
-
     protected $dates = ['created_at', 'tanggal_tenggat', 'tanggal_dikembalikan', 'updated_at'];
 
     protected $guarded = [
@@ -35,4 +28,5 @@ class Loan extends Model implements Auditable
     {
         return $this->belongsTo(Book::class);
     }
+
 }

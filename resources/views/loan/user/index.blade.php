@@ -48,11 +48,11 @@
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td><a class="text-decoration-none"
-                                        href="{{ route('book.detail', $loan->book->id) }}">{{ $loan->book->judul }} |
-                                        {{ $loan->book->penulis }}</a></td>
-                                <td><a class="text-decoration-none"
-                                        href="{{ route('siswa.detail', $loan->user->id) }}">{{ $loan->user->nama }} |
-                                        {{ $loan->user->kelas }} {{ $loan->user->jurusan }}</a></td>
+                                    href="{{ route('book.detail', $loan->book->id) }}">{{ $loan->book->judul }} |
+                                    {{ $loan->book->penulis }}</a></td>
+                            <td><a class="text-decoration-none"
+                                    href="{{ route('siswa.detail', $loan->user->id) }}">{{ $loan->user->nama }} |
+                                    {{ $loan->user->kelas }} {{ $loan->user->jurusan }}</a></td>
                                 <td class="text-center">{{ $loan->created_at }}</td>
                                 <td class="text-center">{{ $loan->tanggal_tenggat }}</td>
                                 <td class="text-center">{{ $loan->tanggal_dikembalikan }}</td>

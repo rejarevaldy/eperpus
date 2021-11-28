@@ -29,7 +29,7 @@ class LoanController extends Controller
             "title" => "Peminjaman",
             "sub" => null,
             "item" => null,
-            "loans" => Loan::with(['user', 'book'])->get('*')
+            "loans" => Loan::with(['user', 'book'])->get()
         ]);
     }
 
@@ -41,8 +41,9 @@ class LoanController extends Controller
             "title" => "Peminjaman",
             "sub" => null,
             "item" => null,
-            "loans" => Loan::with(['user', 'book'])->where('user_id', $id)->get('*')
+            "loans" => Loan::with(['user', 'book'])->where('user_id', $id)->get()
         ]);
+
     }
 
     public function detailLoan(Loan $loan)
