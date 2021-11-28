@@ -26,7 +26,7 @@
                 <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light {{ $title === 'E-Buku user' ? 'active text-primary' : '' }}"
                     href="/ebuku/user"> <i class='fa fa-atlas '></i> E-Buku</a>
                 <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light {{ $title === 'Peminjaman' ? 'active text-primary' : '' }}"
-                    href="{{ route('loan.user', auth()->user()->id) }}"><i class='fa fa-user-graduate'></i> Peminjaman
+                    href="{{ route('loan.user', auth()->user()->nama) }}"><i class='fa fa-user-graduate'></i> Peminjaman
                     {{ auth()->user()->nama }}</a>
             @endif
 
