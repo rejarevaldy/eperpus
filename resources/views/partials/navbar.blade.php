@@ -38,7 +38,7 @@
     <div id="page-content-wrapper">
         <!-- Nav Start -->
         </nav>
-        <header class="py-3 mb-3 bg-white border-bottom">
+        <header class="py-3 mb-3 bg-light border-bottom">
             <div class="container-fluid align-items-center" style="grid-template-columns: 1fr 2fr;">
                 <div class="d-flex align-items-center justify-content-between">
                     <button class="btn" id="sidebarToggle"><i class="fas fa-bars"></i></button>

@@ -81,7 +81,7 @@
                                             class="py-1 text-center text-decoration-none ms-2 me-2">
                                             Edit </a>
                                         <button type="text" data-bs-toggle="modal" data-bs-target="#deleteModal"
-                                            class="py-1 text-center bg-white border-0 text-danger text-decoration-none ms-2 me-2">
+                                            class="py-1 text-center border-0 bg-light text-danger text-decoration-none ms-2 me-2">
                                             Delete </button>
                                     @endif
                                 </td>

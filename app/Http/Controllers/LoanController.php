@@ -20,6 +20,11 @@ class LoanController extends Controller
 
     public function index()
     {
+        if (auth()->user()->role !== 'admin') {
+
+            abort(403);
+        }
+
         return view('loan.index', [
             "title" => "Peminjaman",
             "sub" => null,
@@ -38,7 +43,6 @@ class LoanController extends Controller
             "item" => null,
             "loans" => Loan::with(['user', 'book'])->where('user_id', $id)->get('*')
         ]);
-
     }
 
     public function detailLoan(Loan $loan)

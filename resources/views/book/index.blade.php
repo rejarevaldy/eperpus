@@ -58,7 +58,7 @@
                                 <td>{{ $book->judul }}</td>
                                 <td>{{ $book->penulis }}</td>
                                 <td>{{ $book->isbn }}</td>
-                                <td>{{ $book->stok }}</td>
+                                <td class="text-center">{{ $book->stok }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('book.detail', $book->id) }}"
                                         class="py-1 text-center text-decoration-none ms-2 me-2">
@@ -68,7 +68,7 @@
                                             class="py-1 text-center text-decoration-none ms-2 me-2">
                                             Edit </a>
                                         <button type="text" data-bs-toggle="modal" data-bs-target="#deleteModal"
-                                            class="py-1 text-center bg-white border-0 text-danger text-decoration-none ms-2 me-2">
+                                            class="py-1 text-center border-0 bg-light text-danger text-decoration-none ms-2 me-2">
                                             Delete </button>
                                     @endif
                                 </td>

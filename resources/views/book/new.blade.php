@@ -5,6 +5,7 @@
     <!-- Panel Start -->
     @if (session('status'))
         <div class="alert alert-success alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             <strong>Success!</strong> {{ session('status') }}
         </div>
     @endif

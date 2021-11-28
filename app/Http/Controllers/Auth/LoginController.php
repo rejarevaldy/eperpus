@@ -28,6 +28,10 @@ class LoginController extends Controller
             return back()->with('status', 'Invalid Login Details');
         };
 
-        return redirect('/peminjaman/');
+        if(auth()->user()->role === 'siswa'){
+            return redirect('/buku/');
+        }else{
+            return redirect('/dashboard/');
+        }
     }
 }
