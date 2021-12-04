@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="p-2 rounded bg-light">
-                    <h2 class="mb-3 ">Detail E-Buku</h2>
+                    <h2 class="mb-3 ">Detail E-Buku  | {{ $ebook->judul }} - {{ $ebook->penulis }}</h2>
                     <div class="mb-2 row">
                         <div class="col-sm">
                             @if (auth()->user()->role === 'admin')

@@ -117,7 +117,7 @@ class BookController extends Controller
         if (auth()->user()->role !== 'admin') {
             abort(403);
         }
-        
+
         $book = Book::find($id);
         $book->delete();
         return redirect('/buku/');
@@ -128,5 +128,4 @@ class BookController extends Controller
         $file_name = 'book_report_' . date('Y-m-d_H-i-s') . '.xlsx';
         return Excel::download(new BookExport, $file_name);
     }
-
 }

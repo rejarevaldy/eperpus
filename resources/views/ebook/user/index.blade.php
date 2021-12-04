@@ -14,10 +14,10 @@
                                 <div class="mt-3 border card radius-0 me-auto ms-auto ">
                                     <div class="shadow-sm card">
                                         <img src="{{ asset('images') }}/{{ $ebook->gambar_pdf }}"
-                                            class="card-img-top ms-auto me-auto" width="100%" height="300rem" />
+                                            class="card-img-top ms-auto me-auto " width="100%" height="300rem" />
                                         <div class="card-body d-flex justify-content-center bg-light">
                                             <a href="{{ route('ebook.detail', $ebook->id) }}"
-                                                class="ps-4 pe-4 text-decoration-none fs-5">{{ $ebook->judul }}</a>
+                                                class="text-decoration-none fs-6">{{ $ebook->judul }}</a>
                                         </div>
                                     </div>
                                 </div>

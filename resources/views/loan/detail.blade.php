@@ -27,7 +27,7 @@
                             <button type="button" class="px-4 py-2 btn btn-outline-secondary fw-bold"><i
                                     class="fas fa-caret-square-left"></i>
                                 <a class="text-secondary text-secondary-hover d-none d-sm-inline text-decoration-none"
-                                    href="{{ route('loan') }}"> Back</a>
+                                    href="{{ url()->previous() }}"> Back</a>
                             </button>
                             <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
                                 aria-hidden="true">

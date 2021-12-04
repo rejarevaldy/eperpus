@@ -14,19 +14,24 @@
                                         <div class="d-none d-sm-inline"> New
                                     </button>
                                 </a>
+
+
+
                             @endif
+
 
                             <a href="{{ route('book.export') }}" class=" text-decoration-none">
                                 <button class="px-4 py-2 btn btn-outline-success fw-bold "><i class="fas fa-file-excel"></i>
                                     <div class="d-none d-sm-inline">Export to Excel
                                 </button>
                             </a>
-
-
-                            <a href="{{ route('audit') }}" class="text-white text-decoration-none">
-                                <button class="px-4 py-2 btn btn-outline-secondary fw-bold "><i class="fas fa-history"></i>
-                                    <div class="d-none d-sm-inline">Log Audit
-                                </button>
+                            @if (auth()->user()->role === 'admin')
+                                <a href="{{ route('audit') }}" class="text-white text-decoration-none">
+                                    <button class="px-4 py-2 btn btn-outline-secondary fw-bold "><i
+                                            class="fas fa-history"></i>
+                                        <div class="d-none d-sm-inline">Log Audit
+                                    </button>
+                            @endif
                             </a>
                         </div>
                     </div>
@@ -38,7 +43,6 @@
     <div class="mt-4 mb-4 row">
         <div class="col-lg-12 ">
             <div class="p-4 border rounded shadow-sm bg-light">
-
                 <!-- Tables Start-->
                 <table id="datatable" class="table table-bordered " style="width:100%">
                     <thead>
@@ -103,7 +107,6 @@
                         @endforeach
                 </table>
                 <!-- Tables End -->
-
             </div>
         </div>
     </div>

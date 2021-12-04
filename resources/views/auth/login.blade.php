@@ -46,7 +46,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="mx-auto col-md-6 col-lg-8">
-                                <h3 class="mb-5 login-heading fs-2 fw-bold">ePerpustakaan</h3>
+                                <h3 class="mb-5 login-heading fs-2 fw-bold">E-Perpustakaan</h3>
                                 <form action="{{ route('login') }}" method="POST">
                                     @csrf
                                     <div class="mb-3 form-floating">

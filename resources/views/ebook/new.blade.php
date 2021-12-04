@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-lg-12 ">
                 <div class="p-2 mb-4 bg-light">
-                    <h2 class="mb-2">Tambahkan Buku</h2>
+                    <h2 class="mb-2">Tambahkan E-Buku</h2>
                 </div>
                 <!-- Panel End -->
                 <!-- Form Start -->

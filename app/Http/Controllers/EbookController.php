@@ -66,23 +66,28 @@ class EbookController extends Controller
             abort(403);
         }
 
-        $file = $request->file('file');
-        $fileName = time() . '.' . $file->extension();
-        $file->move(public_path('images'), $fileName);
+        $book = new Ebook();
+
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            $fileName = time() . '.' . $file->extension();
+            $file->move(public_path('images'), $fileName);
+            $book->gambar_pdf = $fileName;
+        } else {
+            $book->gambar_pdf = 'gambar_pdf.png';
+        }
 
         $filepdf = $request->file('filepdf');
         $fileNamePdf = time() . '.' . $filepdf->extension();
         $filepdf->move(public_path('pdf'), $fileNamePdf);
 
-        $book = new Ebook();
         $book->judul = $request->judul;
         $book->isbn = $request->isbn;
         $book->penulis = $request->penulis;
-        $book->gambar_pdf = $fileName;
         $book->file_pdf = $fileNamePdf;
         $book->save();
 
-        return redirect()->back()->with('status', 'EBuku berhasil ditambahkan');
+        return redirect()->back()->with('status', 'E-Buku berhasil ditambahkan');
     }
 
     public function editBook($id)
@@ -94,7 +99,7 @@ class EbookController extends Controller
         $ebook = Ebook::find($id);
 
         return view('ebook.edit', [
-            "title" => "EBuku",
+            "title" => "E-Buku",
             "sub" => "Edit",
             "item" => $ebook->judul,
             "ebook" => $ebook
@@ -121,7 +126,7 @@ class EbookController extends Controller
         if ($request->hasFile('file')) {
             $file = $request->file('file');
             $fileName = time() . '.' . $file->extension();
-            $file->move(public_path('pdf'), $fileName);
+            $file->move(public_path('images'), $fileName);
             $book->gambar_pdf = $fileName;
         } else {
             $book->gambar_pdf = $book->gambar_pdf;
@@ -132,7 +137,7 @@ class EbookController extends Controller
         $book->penulis = $request->penulis;
 
         $book->update();
-        return redirect()->back()->with('status', 'Buku berhasil diperbarui');
+        return redirect()->back()->with('status', 'E-Buku berhasil diperbarui');
     }
 
     public function destroy($id)

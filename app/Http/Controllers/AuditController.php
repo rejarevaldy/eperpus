@@ -17,6 +17,10 @@ class AuditController extends Controller
 
     public function index()
     {
+        if (auth()->user()->role !== 'admin') {
+            abort(403);
+        }
+
         return view('audit.index', [
             "title" => "Audit",
             "sub" => null,

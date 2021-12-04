@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="p-2 rounded bg-light">
-                    <h2>Edit Peminjaman | {{ $loan->user_id }}</h2>
+                    <h2>Edit Peminjaman</h2>
                 </div>
             </div>
         </div>
