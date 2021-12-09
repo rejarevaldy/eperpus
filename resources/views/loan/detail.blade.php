@@ -19,7 +19,7 @@
                                 </a>
                                 <!-- Button trigger modal -->
                                 <button type="button" class="px-4 py-2 btn btn-outline-danger fw-bold"
-                                    data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                    data-bs-toggle="modal" data-bs-target="#deleteModal_{{ $loan->id }}">
                                     <i class="fas fa-trash"></i>
                                     <div class="d-none d-sm-inline"> Delete</div>
                                 </button>
@@ -29,7 +29,7 @@
                                 <a class="text-secondary text-secondary-hover d-none d-sm-inline text-decoration-none"
                                     href="{{ url()->previous() }}"> Back</a>
                             </button>
-                            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
+                            <div class="modal fade" id="deleteModal_{{ $loan->id }}" tabindex="-1" aria-labelledby="deleteModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">

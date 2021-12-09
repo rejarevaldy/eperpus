@@ -66,14 +66,14 @@
                                         <a href="{{ route('ebook.edit', $ebook->id) }}"
                                             class="py-1 text-center text-decoration-none ms-2 me-2">
                                             Edit </a>
-                                        <button type="text" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                        <button type="text" data-bs-toggle="modal" data-bs-target="#deleteModal_{{ $ebook->id }}"
                                             class="py-1 text-center border-0 bg-light text-danger text-decoration-none ms-2 me-2">
                                             Delete </button>
                                     @endif
                                 </td>
                             </tr>
                             {{-- Modal Start --}}
-                            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
+                            <div class="modal fade" id="deleteModal_{{ $ebook->id }}" tabindex="-1" aria-labelledby="deleteModalLabel"
                                 aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
