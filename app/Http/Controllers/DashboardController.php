@@ -32,10 +32,10 @@ class DashboardController extends Controller
             "sub" => null,
             "item" => null,
             "loans" => Loan::with(['user', 'book'])->limit(5)->latest()->get(),
-            "user" => User::all()->where('role','siswa')->count(),
+            "user" => User::all()->where('role', 'siswa')->count(),
             "book" => Book::all()->count(),
-            "dikembalikan" =>  Loan::all()->where('status','Dikembalikan')->count(),
-            "dipinjam" =>  Loan::all()->where('status','Dipinjam')->count(),
+            "dikembalikan" =>  Loan::all()->where('status', 'Dikembalikan')->count(),
+            "dipinjam" =>  Loan::all()->where('status', 'Dipinjam')->count(),
             "time" => $currentTime->toDateTimeString()
         ]);
     }
