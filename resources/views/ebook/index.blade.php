@@ -45,9 +45,10 @@
                     <thead>
                         <tr class="text-center fw-bold">
                             <th style="width: 1%">No</th>
+                            <th style="width: 7%">Gambar Buku</th>
                             <th style="width: 30%">Judul</th>
                             <th>Penulis</th>
-                            <th>ISBN</th>
+                            <th style="width: 5%">ISBN</th>
                             <th class="sorting_none" style="width: 18%"></th>
                         </tr>
                     </thead>
@@ -55,6 +56,8 @@
                         @foreach ($ebooks as $ebook)
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
+                                <td><img src=" {{ asset('images/') }}/{{ $ebook->gambar_pdf }}" 
+                                    alt="{{ $ebook->gambar_pdf }}" width="70rem "></td>
                                 <td>{{ $ebook->judul }}</td>
                                 <td>{{ $ebook->penulis }}</td>
                                 <td>{{ $ebook->isbn }}</td>

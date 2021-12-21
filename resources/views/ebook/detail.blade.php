@@ -75,7 +75,7 @@
                             <label for="" class="mb-1 fw-bold"> Image</label>
                             <div class="input-group">
                                 <img src=" {{ asset('images/') }}/{{ $ebook->gambar_pdf }}" class="img-thumbnail"
-                                    alt="...">
+                                    alt="{{ $ebook->gambar_pdf }}">
                             </div>
                         </div>
                     </div>

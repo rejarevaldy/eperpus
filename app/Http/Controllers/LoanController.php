@@ -18,12 +18,32 @@ class LoanController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Loan $loan)
     {
         if (auth()->user()->role !== 'admin') {
 
             abort(403);
         }
+
+
+        Loan::where('tanggal_tenggat','<=', date('Y-m-d'))->where('tanggal_dikembalikan', null)->update(['status' => 'Terlambat']);
+        Loan::where('tanggal_tenggat','>=', date('Y-m-d'))->where('tanggal_dikembalikan', null)->update(['status' => 'Dipinjam']);
+        Loan::where('tanggal_dikembalikan', '!=', null)->update(['status' => 'Dikembalikan']);
+
+
+
+
+        // foreach ($loans as $loan) {
+            
+
+
+        //     if (Carbon::now() == $loan->tanggal_tenggat->date() && !empty($loan->tanggal_dikembalikan)) {
+        //         $id = $loan->id;
+        //         $update = Loan::find($id);
+        //         $update->status = 'Terlambat';
+        //         $update->update();
+        //     }
+        // }
 
         return view('loan.index', [
             "title" => "Peminjaman",
@@ -43,7 +63,6 @@ class LoanController extends Controller
             "item" => null,
             "loans" => Loan::with(['user', 'book'])->where('user_id', $id)->get()
         ]);
-
     }
 
     public function detailLoan(Loan $loan)
