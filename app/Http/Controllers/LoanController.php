@@ -25,8 +25,8 @@ class LoanController extends Controller
             abort(403);
         }
 
-        Loan::where('tanggal_tenggat','<=', date('Y-m-d'))->where('tanggal_dikembalikan', null)->update(['status' => 'Terlambat']);
-        Loan::where('tanggal_tenggat','>=', date('Y-m-d'))->where('tanggal_dikembalikan', null)->update(['status' => 'Dipinjam']);
+        Loan::where('tanggal_tenggat', '<=', date('Y-m-d'))->where('tanggal_dikembalikan', null)->update(['status' => 'Terlambat']);
+        Loan::where('tanggal_tenggat', '>=', date('Y-m-d'))->where('tanggal_dikembalikan', null)->update(['status' => 'Dipinjam']);
         Loan::where('tanggal_dikembalikan', '!=', null)->update(['status' => 'Dikembalikan']);
 
         return view('loan.index', [
@@ -81,21 +81,23 @@ class LoanController extends Controller
             abort(403);
         }
 
+
+
         $loan = new Loan();
-
-        $loan->user_id = $request->user;
-        $loan->book_id = $request->book;
-        $loan->tanggal_tenggat = $request->tanggal_tenggat;
-        $loan->status = 'Dipinjam';
-
-        $loan->save();
-
         $book = Book::find($request->book);
-        $book->stok = $book->stok - 1;
 
-        $book->update();
-
-        return redirect()->back()->with('status', 'Peminjaman berhasil ditambahkan');
+        if ($book->stok <= 0) {
+            return redirect()->back()->with('statusDanger', 'Peminjaman gagal ditambahkan, buku tidak tersedia');
+        } else {
+            $loan->user_id = $request->user;
+            $loan->book_id = $request->book;
+            $loan->tanggal_tenggat = $request->tanggal_tenggat;
+            $loan->status = 'Dipinjam';
+            $loan->save();
+            $book->stok = $book->stok - 1;
+            $book->update();
+            return redirect()->back()->with('status', 'Peminjaman berhasil ditambahkan');
+        }
     }
 
     public function editLoan($id)
@@ -132,7 +134,7 @@ class LoanController extends Controller
 
         $loan->update();
 
-        $book = Book::find( $loan->book_id);
+        $book = Book::find($loan->book_id);
         $book->stok = $book->stok + 1;
 
         $book->update();

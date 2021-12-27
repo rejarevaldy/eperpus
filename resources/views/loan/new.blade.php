@@ -9,6 +9,12 @@
             <strong>Success!</strong> {{ session('status') }}
         </div>
     @endif
+    @if (session('statusDanger'))
+    <div class="alert alert-danger alert-dismissible">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Fail!</strong> {{ session('statusDanger') }}
+    </div>
+@endif
     <div class="p-4 mb-4 border rounded bg-light">
         <div class="row">
             <div class="col-lg-12 ">
