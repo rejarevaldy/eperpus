@@ -29,7 +29,60 @@
         });
     </script>
 
-    <title>e-Perpus | Login</title>
+    <style>
+        .css-selector {
+            background: linear-gradient(138deg, #3451c7, #cbd2f3);
+            background-size: 400% 400%;
+            -webkit-animation: AnimationName 30s ease infinite;
+            -moz-animation: AnimationName 30s ease infinite;
+            animation: AnimationName 30s ease infinite;
+        }
+
+        @-webkit-keyframes AnimationName {
+            0% {
+                background-position: 0% 2%
+            }
+
+            50% {
+                background-position: 100% 99%
+            }
+
+            100% {
+                background-position: 0% 2%
+            }
+        }
+
+        @-moz-keyframes AnimationName {
+            0% {
+                background-position: 0% 2%
+            }
+
+            50% {
+                background-position: 100% 99%
+            }
+
+            100% {
+                background-position: 0% 2%
+            }
+        }
+
+        @keyframes AnimationName {
+            0% {
+                background-position: 0% 2%
+            }
+
+            50% {
+                background-position: 100% 99%
+            }
+
+            100% {
+                background-position: 0% 2%
+            }
+        }
+
+    </style>
+
+    <title>e-Perpus | Register</title>
 </head>
 
 <body>
@@ -39,16 +92,34 @@
         <div class="row g-0">
             <!-- Login  -->
             <!-- Background Image -->
-            <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"><img class="img-fluid"
-                    src="{{ asset('images/library.png') }}" alt="" srcset=""></div>
             <div class="col-md-8 col-lg-6">
                 <div class="py-5 login d-flex align-items-center">
                     <div class="container">
                         <div class="row">
                             <div class="mx-auto col-md-6 col-lg-8">
-                                <h3 class="mb-5 login-heading fs-2 fw-bold">E-Perpustakaan</h3>
-                                <form action="{{ route('login') }}" method="POST">
+                                <h3 class="mb-5 login-heading fs-2 fw-bold">Registrasi</h3>
+                                <form action="{{ route('register.store') }}" method="POST">
                                     @csrf
+                                    <div class="mb-3 form-floating">
+                                        <input type="text" class="form-control bg-input" id="floatingInput"
+                                            placeholder="Nama" name="nama">
+                                        @error('nama')
+                                            <div class="text-danger">
+                                                * {{ $message }}
+                                            </div>
+                                        @enderror
+                                        <label for="floatingInput">Nama</label>
+                                    </div>
+                                    <div class="mb-3 form-floating">
+                                          <input type="text" class="form-control bg-input" id="floatingInput"
+                                              placeholder="Nis" name="nis">
+                                          @error('nis')
+                                              <div class="text-danger">
+                                                  * {{ $message }}
+                                              </div>
+                                          @enderror
+                                          <label for="floatingInput">Nis</label>
+                                      </div>
                                     <div class="mb-3 form-floating">
                                         <input type="text" class="form-control bg-input" id="floatingInput"
                                             placeholder="Username" name="username">
@@ -71,30 +142,50 @@
                                         <label for="floatingPassword">Password</label>
                                     </div>
 
-                                    <div class="mb-3 fs-6 ">
-                                        <p>Sign in as :
-                                            <a class="text-decoration-none ms-2" href="#"
-                                                onClick="autoFillAdmin(); return true;"> Admin </a>
-                                            <a class="text-decoration-none ms-2" href="#"
-                                                onClick="autoFillUser(); return true;"> Siswa </a>
-                                        </p>
+
+                                    <div class="mb-3 form-floating input-group ">
+                                        <select class="form-select bg-input" id="floatingSelect"
+                                            aria-label="Floating label select example" name="jurusan">
+                                            @foreach ($jurusan as $j)
+                                                <option value="{{ $j }}">{{ $j }}</option>
+                                            @endforeach
+                                        </select>
+
+                                        <select class="form-select bg-input" id="floatingSelect"
+                                            aria-label="Floating label select example" name="kelas">
+                                            @foreach ($kelas as $k)
+                                                <option value="{{ $k }}">{{ $k }}</option>
+                                            @endforeach
+                                        </select>
+
                                     </div>
 
-                                    <div class="mb-3 form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="remember"
-                                            name="remember">
-                                        <label class="form-check-label" for="remember">
-                                            Remember me
-                                        </label>
-                                    </div>
-
-
+                                    <div class="mb-3 form-floating input-group ">
+                                          <select class="form-select bg-input" id="floatingSelect"
+                                              aria-label="Floating label select example" name="agama">
+                                              @foreach ($agama as $a)
+                                                  <option value="{{ $a }}">{{ $a }}</option>
+                                              @endforeach
+                                          </select>
+  
+                                          <select class="form-select bg-input" id="floatingSelect"
+                                              aria-label="Floating label select example" name="gender">
+                                              @foreach ($gender as $g)
+                                                  <option value="{{ $g }}">{{ $g }}</option>
+                                              @endforeach
+                                          </select>
+  
+                                      </div>
+  
 
                                     <div class="mb-4 d-grid">
                                         <button class="mb-2 btn btn-lg btn-primary btn-login text-uppercase fw-bold"
-                                            type="submit">Login</button>
-                                    <a href="{{ route('register') }}" class="text-center mt-3 text-decoration-none">Account Register</a>
+                                            type="submit">Register</button>
+                                        <a href="{{ route('login') }}"
+                                            class="text-center mt-3 text-decoration-none">Sign In</a>
                                     </div>
+
+                                    <a href=""></a>
 
                                     <p class="text-center text-secondary">SMKN 2 Banjarmasin</p>
 
@@ -103,13 +194,14 @@
                                             {{ session('status') }}
                                         </div>
                                     @endif
-
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image css-selector" style=""></div>
+
         </div>
     </div>
 
@@ -173,16 +265,5 @@
 
 </body>
 
-<script type="text/javascript">
-    function autoFillAdmin() {
-        document.getElementById('floatingInput').value = "admin";
-        document.getElementById('floatingPassword').value = "admin";
-    }
-
-    function autoFillUser() {
-        document.getElementById('floatingInput').value = "siswa";
-        document.getElementById('floatingPassword').value = "siswa";
-    }
-</script>
 
 </html>

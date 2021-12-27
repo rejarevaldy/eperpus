@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuditController;
 use App\Http\Controllers\EbookController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
@@ -17,6 +18,8 @@ Route::get('/', [LoginController::class, 'index']);
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'store'])->name('login.store');
 Route::get('/logout', [LogoutController::class, 'store'])->name('logout');
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register/tambahkan', [RegisterController::class, 'storeUser'])->name('register.store');
 
 // Dashboard
 Route::get('/dashboard', [DashboardController::class, 'index']);
