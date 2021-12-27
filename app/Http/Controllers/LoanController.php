@@ -25,25 +25,9 @@ class LoanController extends Controller
             abort(403);
         }
 
-
         Loan::where('tanggal_tenggat','<=', date('Y-m-d'))->where('tanggal_dikembalikan', null)->update(['status' => 'Terlambat']);
         Loan::where('tanggal_tenggat','>=', date('Y-m-d'))->where('tanggal_dikembalikan', null)->update(['status' => 'Dipinjam']);
         Loan::where('tanggal_dikembalikan', '!=', null)->update(['status' => 'Dikembalikan']);
-
-
-
-
-        // foreach ($loans as $loan) {
-            
-
-
-        //     if (Carbon::now() == $loan->tanggal_tenggat->date() && !empty($loan->tanggal_dikembalikan)) {
-        //         $id = $loan->id;
-        //         $update = Loan::find($id);
-        //         $update->status = 'Terlambat';
-        //         $update->update();
-        //     }
-        // }
 
         return view('loan.index', [
             "title" => "Peminjaman",
@@ -106,6 +90,11 @@ class LoanController extends Controller
 
         $loan->save();
 
+        $book = Book::find($request->book);
+        $book->stok = $book->stok - 1;
+
+        $book->update();
+
         return redirect()->back()->with('status', 'Peminjaman berhasil ditambahkan');
     }
 
@@ -142,6 +131,12 @@ class LoanController extends Controller
         $loan->status = $request->status;
 
         $loan->update();
+
+        $book = Book::find( $loan->book_id);
+        $book->stok = $book->stok + 1;
+
+        $book->update();
+
         return redirect()->back()->with('status', 'Peminjaman berhasil diperbarui');
     }
 
