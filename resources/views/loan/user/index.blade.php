@@ -5,7 +5,7 @@
 
     <div class="p-4 mb-4 border rounded shadow-sm bg-light ">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-8">
                 <div class="p-2 rounded bg-light">
                     <h2 class="mb-3 ">Peminjaman</h2>
                     <div class="mb-2 row">
@@ -17,9 +17,19 @@
                                         <div class="d-none d-sm-inline">Export to Excel
                                     </button>
                                 </a>
-
                             </a>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="border card border-danger">
+                    <div class="align-middle card-body bg-danger d-flex justify-content-between text-light">
+                        <h1 class="card-text"><i class=" fa fa-exclamation" style="font-size: 2rem;"></i></h1>
+                        <h1 class=" card-text text-light" style="font-size: 2rem">{{ Auth()->user()->denda }} </h1>
+                    </div>
+                    <div class="card-header " style="height: 2.5">
+                        <p class="text-decoration-none text-secondary">Denda Peminjaman</p>
                     </div>
                 </div>
             </div>

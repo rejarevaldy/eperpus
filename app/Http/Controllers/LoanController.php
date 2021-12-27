@@ -40,6 +40,19 @@ class LoanController extends Controller
     public function loanUser()
     {
         $id = auth()->user()->id;
+        $terlambat = Loan::with(['user', 'book'])->where('user_id', $id)->pluck('status')->toArray();
+
+        $user = User::find($id);
+        $user->denda =  0;
+        $user->update();
+
+        foreach ($terlambat as $status) {
+            if ($status == 'Terlambat') {
+                $user = User::find($id);
+                $user->denda +=  30000;
+                $user->update();
+            }
+        }
 
         return view('loan.user.index', [
             "title" => "Peminjaman",
