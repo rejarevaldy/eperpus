@@ -24,11 +24,12 @@
             </div>
             <div class="col-lg-4">
                 <div class="border card border-danger">
-                    <div class="align-middle card-body bg-danger d-flex justify-content-between text-light">
+                    <div class="align-middle card-body bg-danger d-flex justify-content-between text-light "style="height: 4rem">
                         <h1 class="card-text"><i class=" fa fa-exclamation" style="font-size: 2rem;"></i></h1>
-                        <h1 class=" card-text text-light" style="font-size: 2rem">{{ Auth()->user()->denda }} </h1>
+                        <h1 class=" card-text text-light" style="font-size: 2rem">
+                            Rp. {{ number_format(Auth()->user()->denda, 0, '.', '.') }} </h1>
                     </div>
-                    <div class="card-header " style="height: 2.5">
+                    <div class="card-header " style="height: 2.5rem">
                         <p class="text-decoration-none text-secondary">Denda Peminjaman</p>
                     </div>
                 </div>

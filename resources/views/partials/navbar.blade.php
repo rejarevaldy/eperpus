@@ -16,10 +16,13 @@
                     href="/peminjaman/"><i class='fa fa-address-book'></i> Peminjaman</a>
                 <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light {{ $title === 'E-Buku' ? 'active text-primary' : '' }}"
                     href="/ebuku/"> <i class='fa fa-atlas '></i> E-Buku</a>
+
             @endif
 
             <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light {{ $title === 'Buku' ? 'active text-primary' : '' }}"
                 href="/buku/"> <i class='fa fa-book '></i> Buku</a>
+            <a class="p-3 border-0 list-group-item list-group-item-action list-group-item-light {{ $title === 'Materi' ? 'active text-primary' : '' }}"
+                href="/materi/"> <i class='fab fa-leanpub '></i> Materi</a>
 
 
             @if (auth()->user()->role === 'siswa')

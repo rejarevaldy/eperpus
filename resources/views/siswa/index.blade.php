@@ -9,18 +9,18 @@
                     <h2 class="mb-3 ">Siswa</h2>
                     <div class="mb-2 row">
                         <div class="col-sm">
-                            <a href="{{  route('siswa.add') }}" class="text-white text-decoration-none">
+                            <a href="{{ route('siswa.add') }}" class="text-white text-decoration-none">
                                 <button class="px-4 py-2 btn btn-outline-primary fw-bold "><i class="fas fa-plus"></i>
                                     <div class="d-none d-sm-inline"> New
                                 </button>
                             </a>
-                            <a href="{{  route('siswa.export') }}" class=" text-decoration-none">
+                            <a href="{{ route('siswa.export') }}" class=" text-decoration-none">
                                 <button class="px-4 py-2 btn btn-outline-success fw-bold "><i class="fas fa-file-excel"></i>
                                     <div class="d-none d-sm-inline">Export to Excel
                                 </button>
                             </a>
 
-                            <a href="{{  route('audit') }}" class="text-white text-decoration-none">
+                            <a href="{{ route('audit') }}" class="text-white text-decoration-none">
                                 <button class="px-4 py-2 btn btn-outline-secondary fw-bold "><i class="fas fa-history"></i>
                                     <div class="d-none d-sm-inline">Log Audit
                                 </button>
@@ -45,6 +45,7 @@
                             <th>Nama</th>
                             <th style="width: 15%">Nis</th>
                             <th style="width: 10%">Kelas</th>
+                            <th style="width: 20%">Denda</th>
                             <th class="sorting_none" style="width: 18%"></th>
                         </tr>
                     </thead>
@@ -55,21 +56,23 @@
                                 <td>{{ $siswa->nama }}</td>
                                 <td>{{ $siswa->nis }}</td>
                                 <td>{{ $siswa->kelas }} - {{ $siswa->jurusan }}</td>
+                                <td>Rp. {{ number_format($siswa->denda, 0, '.', '.') }}</td>
                                 <td class="text-center">
-                                    <a href="{{  route('siswa.detail', $siswa->id) }}"
+                                    <a href="{{ route('siswa.detail', $siswa->id) }}"
                                         class="py-1 text-center text-decoration-none ms-2 me-2">
                                         View </a>
-                                    <a href="{{  route('siswa.edit', $siswa->id) }}"
+                                    <a href="{{ route('siswa.edit', $siswa->id) }}"
                                         class="py-1 text-center text-decoration-none ms-2 me-2">
                                         Edit </a>
-                                    <button type="text" data-bs-toggle="modal" data-bs-target="#deleteModal_{{ $siswa->id }}"
+                                    <button type="text" data-bs-toggle="modal"
+                                        data-bs-target="#deleteModal_{{ $siswa->id }}"
                                         class="py-1 text-center border-0 bg-light text-danger text-decoration-none ms-2 me-2">
                                         Delete </button>
                                 </td>
                             </tr>
                             {{-- Modal Start --}}
-                            <div class="modal fade" id="deleteModal_{{ $siswa->id }}" tabindex="-1" aria-labelledby="deleteModalLabel"
-                                aria-hidden="true">
+                            <div class="modal fade" id="deleteModal_{{ $siswa->id }}" tabindex="-1"
+                                aria-labelledby="deleteModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">

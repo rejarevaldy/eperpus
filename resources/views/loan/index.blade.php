@@ -43,6 +43,7 @@
 
                 <!-- Tables Start-->
                 <table id="datatable" class="table table-bordered " style="width:100%">
+
                     <thead>
                         <tr class="text-center fw-bold">
                             <th style="width: 1%">No</th>
@@ -60,10 +61,12 @@
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td><a class="text-decoration-none"
-                                        href="{{ route('book.detail', $loan->book->id) }}">{{ $loan->book->judul }} |
+                                        href="{{ route('book.detail', $loan->book->id) }}">{{ $loan->book->judul }}
+                                        |
                                         {{ $loan->book->penulis }}</a></td>
                                 <td><a class="text-decoration-none"
-                                        href="{{ route('siswa.detail', $loan->user->id) }}">{{ $loan->user->nama }} |
+                                        href="{{ route('siswa.detail', $loan->user->id) }}">{{ $loan->user->nama }}
+                                        |
                                         {{ $loan->user->kelas }} {{ $loan->user->jurusan }}</a></td>
                                 <td class="text-center">{{ $loan->created_at }}</td>
                                 <td class="text-center">{{ $loan->tanggal_tenggat }}</td>
@@ -71,6 +74,7 @@
                                 <td
                                     class="{{ $loan->status === 'Dipinjam' ? 'text-secondary' : '' }} {{ $loan->status === 'Dikembalikan' ? 'text-success' : '' }}{{ $loan->status === 'Terlambat' ? 'text-danger' : '' }}">
                                     {{ $loan->status }}</td>
+
                                 <td class="text-center">
 
                                     <a href="{{ route('loan.detail', $loan->id) }}"
@@ -80,15 +84,16 @@
                                         <a href="{{ route('loan.edit', $loan->id) }}"
                                             class="py-1 text-center text-decoration-none ms-2 me-2">
                                             Edit </a>
-                                        <button type="text" data-bs-toggle="modal" data-bs-target="#deleteModal_{{ $loan->id }}"
+                                        <button type="text" data-bs-toggle="modal"
+                                            data-bs-target="#deleteModal_{{ $loan->id }}"
                                             class="py-1 text-center border-0 bg-light text-danger text-decoration-none ms-2 me-2">
                                             Delete </button>
                                     @endif
                                 </td>
                             </tr>
                             {{-- Modal Start --}}
-                            <div class="modal fade" id="deleteModal_{{ $loan->id }}" tabindex="-1" aria-labelledby="deleteModalLabel"
-                                aria-hidden="true">
+                            <div class="modal fade" id="deleteModal_{{ $loan->id }}" tabindex="-1"
+                                aria-labelledby="deleteModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -116,6 +121,7 @@
                             {{-- Modal End --}}
                         @endforeach
                 </table>
+
                 <!-- Tables End -->
 
             </div>

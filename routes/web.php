@@ -12,6 +12,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\CourseController;
 
 // Auth
 Route::get('/', [LoginController::class, 'index']);
@@ -67,6 +68,14 @@ Route::delete('/ebuku/delete/{ebook:id}', [EbookController::class, 'destroy'])->
 Route::get('/ebuku/export/excel',  [EbookController::class, 'exportExcel'])->name('ebook.export');
 
 Route::get('/ebuku/user', [EbookController::class, 'userEbuku'])->name('ebook.user');
+
+// Course
+Route::get('/materi', [CourseController::class, 'index'])->name('course');
+Route::get('/materi/detail/{course:id}', [CourseController::class, 'detailCourse'])->name('course.detail');
+Route::post('/materi/tambahkan', [CourseController::class, 'storeCourse'])->name('course.store');
+Route::put('/materi/edit/{course:id}', [CourseController::class, 'updateCourse'])->name('course.update');
+Route::delete('/materi/delete/{course:id}', [CourseController::class, 'destroy'])->name('course.delete');
+
 
 
 // Siswa/user

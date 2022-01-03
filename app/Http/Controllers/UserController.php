@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Loan;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,6 +16,23 @@ class UserController extends Controller
 
     public function index()
     {
+        $ids = User::all()->pluck('id')->toArray();
+
+        foreach ($ids as $id) {
+            $terlambat = Loan::with(['user', 'book'])->where('user_id', $id)->pluck('status')->toArray();
+            $user = User::find($id);
+            $user->denda =  0;
+            $user->update();
+
+            foreach ($terlambat as $status) {
+                if ($status == 'Terlambat') {
+                    $user = User::find($id);
+                    $user->denda +=  30000;
+                    $user->update();
+                }
+            }
+        }
+
         return view('user.index', [
             "title" => "User",
             "sub" => "Detail",
