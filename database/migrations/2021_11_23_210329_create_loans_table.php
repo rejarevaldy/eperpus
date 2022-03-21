@@ -15,11 +15,11 @@ class CreateLoansTable extends Migration
     {
         Schema::create('loans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('table_name')->onDelete('cascade');
-            $table->foreignId('book_id')->references('id')->on('books')->onDelete('cascade');
+            $table->foreignId('user_id')->onDelete('cascade');
+            $table->foreignId('book_id')->onDelete('cascade');
             $table->timestamp('tanggal_tenggat');
             $table->timestamp('tanggal_dikembalikan')->nullable();
-            $table->enum('status' ,['Dipinjam', 'Dikembalikan', 'Terlambat']);
+            $table->enum('status', ['Dipinjam', 'Dikembalikan', 'Terlambat']);
             $table->timestamps();
         });
     }

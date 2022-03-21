@@ -111,15 +111,15 @@
                                         <label for="floatingInput">Nama</label>
                                     </div>
                                     <div class="mb-3 form-floating">
-                                          <input type="text" class="form-control bg-input" id="floatingInput"
-                                              placeholder="Nis" name="nis">
-                                          @error('nis')
-                                              <div class="text-danger">
-                                                  * {{ $message }}
-                                              </div>
-                                          @enderror
-                                          <label for="floatingInput">Nis</label>
-                                      </div>
+                                        <input type="text" class="form-control bg-input" id="floatingInput"
+                                            placeholder="Nis" name="nis">
+                                        @error('nis')
+                                            <div class="text-danger">
+                                                * {{ $message }}
+                                            </div>
+                                        @enderror
+                                        <label for="floatingInput">Nis</label>
+                                    </div>
                                     <div class="mb-3 form-floating">
                                         <input type="text" class="form-control bg-input" id="floatingInput"
                                             placeholder="Username" name="username">
@@ -161,22 +161,22 @@
                                     </div>
 
                                     <div class="mb-3 form-floating input-group ">
-                                          <select class="form-select bg-input" id="floatingSelect"
-                                              aria-label="Floating label select example" name="agama">
-                                              @foreach ($agama as $a)
-                                                  <option value="{{ $a }}">{{ $a }}</option>
-                                              @endforeach
-                                          </select>
-  
-                                          <select class="form-select bg-input" id="floatingSelect"
-                                              aria-label="Floating label select example" name="gender">
-                                              @foreach ($gender as $g)
-                                                  <option value="{{ $g }}">{{ $g }}</option>
-                                              @endforeach
-                                          </select>
-  
-                                      </div>
-  
+                                        <select class="form-select bg-input" id="floatingSelect"
+                                            aria-label="Floating label select example" name="agama">
+                                            @foreach ($agama as $a)
+                                                <option value="{{ $a }}">{{ $a }}</option>
+                                            @endforeach
+                                        </select>
+
+                                        <select class="form-select bg-input" id="floatingSelect"
+                                            aria-label="Floating label select example" name="gender">
+                                            @foreach ($gender as $g)
+                                                <option value="{{ $g }}">{{ $g }}</option>
+                                            @endforeach
+                                        </select>
+
+                                    </div>
+
 
                                     <div class="mb-4 d-grid">
                                         <button class="mb-2 btn btn-lg btn-primary btn-login text-uppercase fw-bold"
@@ -188,6 +188,8 @@
                                     <a href=""></a>
 
                                     <p class="text-center text-secondary">SMKN 2 Banjarmasin</p>
+                                    <p class="text-center text-secondary"> © Reja Revaldy F, 2021
+                                    </p>
 
                                     @if (session('status'))
                                         <div class="p-4 mb-6 text-center text-white bg-red-500 rounded-lg">
@@ -212,7 +214,7 @@
                 <div class="mb-4 col-lg-5 col-md-12 mb-md-0">
                     <h5 class="text-uppercase fw-bold">SMKN 2 BANJARMASIN</h5>
                     <p>
-                        2021
+                        © Reja Revaldy F, 2021
                     </p>
                 </div>
 

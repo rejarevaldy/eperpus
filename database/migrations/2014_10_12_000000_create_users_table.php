@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->enum('agama', ['Islam', 'Kristen', 'Buddha', 'Hindu']);
             $table->enum('role', ['admin', 'siswa']);
             $table->string('gambar_user')->default('user.png');
-            $table->int('denda')->nullable()->default(0);
+            $table->integer('denda')->nullable()->default(0);
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

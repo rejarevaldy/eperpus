@@ -71,15 +71,6 @@
                                         <label for="floatingPassword">Password</label>
                                     </div>
 
-                                    <div class="mb-3 fs-6 ">
-                                        <p>Sign in as :
-                                            <a class="text-decoration-none ms-2" href="#"
-                                                onClick="autoFillAdmin(); return true;"> Admin </a>
-                                            <a class="text-decoration-none ms-2" href="#"
-                                                onClick="autoFillUser(); return true;"> Siswa </a>
-                                        </p>
-                                    </div>
-
                                     <div class="mb-3 form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="remember"
                                             name="remember">
@@ -93,10 +84,13 @@
                                     <div class="mb-4 d-grid">
                                         <button class="mb-2 btn btn-lg btn-primary btn-login text-uppercase fw-bold"
                                             type="submit">Login</button>
-                                    <a href="{{ route('register') }}" class="text-center mt-3 text-decoration-none">Account Register</a>
+                                        <a href="{{ route('register') }}"
+                                            class="text-center mt-3 text-decoration-none">Account Register</a>
                                     </div>
 
                                     <p class="text-center text-secondary">SMKN 2 Banjarmasin</p>
+                                    <p class="text-center text-secondary"> © Reja Revaldy F, 2021
+                                    </p>
 
                                     @if (session('status'))
                                         <div class="p-4 mb-6 text-center text-white bg-red-500 rounded-lg">
@@ -120,7 +114,7 @@
                 <div class="mb-4 col-lg-5 col-md-12 mb-md-0">
                     <h5 class="text-uppercase fw-bold">SMKN 2 BANJARMASIN</h5>
                     <p>
-                        2021
+                        © Reja Revaldy F, 2021
                     </p>
                 </div>
 
@@ -173,16 +167,6 @@
 
 </body>
 
-<script type="text/javascript">
-    function autoFillAdmin() {
-        document.getElementById('floatingInput').value = "admin";
-        document.getElementById('floatingPassword').value = "admin";
-    }
 
-    function autoFillUser() {
-        document.getElementById('floatingInput').value = "siswa";
-        document.getElementById('floatingPassword').value = "siswa";
-    }
-</script>
 
 </html>
